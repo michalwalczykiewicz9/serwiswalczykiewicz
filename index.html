@@ -4,7 +4,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Wulkanizacja & Geometria 3D | Serwis Walczykiewicz Ostrzeszów, Kępno, Syców, Ostrów Wlkp.</title>
-    <!-- Dodana ikona favicon -->
     <link rel="icon" type="image/png" href="icon.png">
     
     <meta name="description" content="Profesjonalna wulkanizacja, geometria 3D Invento oraz lakiernia i renowacja felg. Serwis opon Walczykiewicz - Ostrzeszów, Kępno, Syców, Mikstat, Ostrów Wielkopolski i okolice. Zapraszamy!">
@@ -213,7 +212,10 @@
         /* --- GEOMETRIA 3D --- */
         .geo-section {
             padding: 100px 5%;
-            background: #111;
+            background: linear-gradient(rgba(0,0,0,0.85), rgba(0,0,0,0.85)), url('oponynieaktualne.jpg');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
             color: white;
         }
         .geo-content {
@@ -261,7 +263,6 @@
             color: #fff;
         }
         
-        /* Układ dwukolumnowy dla Lakierni */
         .lakiernia-columns {
             display: grid;
             grid-template-columns: 1fr 1fr;
@@ -287,7 +288,6 @@
         }
         .lakiernia-col p { color: #ccc; font-size: 14px; margin-bottom: 25px; }
 
-        /* Przed/Po Slider */
         .ba-slider {
             position: relative;
             width: 100%;
@@ -316,7 +316,6 @@
             display: flex; align-items: center; justify-content: center; font-weight: bold; font-size: 12px;
         }
 
-        /* Sekcja Kolorów (Próbek) */
         .color-palette {
             display: flex;
             justify-content: flex-start;
@@ -356,7 +355,6 @@
             color: #eee;
         }
 
-        /* Lista cech dla malowania na mokro */
         .wet-paint-list {
             list-style: none;
             padding: 0;
@@ -378,7 +376,6 @@
             font-size: 16px;
         }
 
-        /* Galeria na dole */
         .realizacje-grid { 
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
