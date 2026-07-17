@@ -3,59 +3,636 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Wulkanizacja i Serwis Walczykiewicz</title>
+    <title>Serwis Walczykiewicz | Ostrzeszów - Geometria 3D & Lakiernia Felg</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700;900&display=swap" rel="stylesheet">
     <style>
+        :root {
+            --main-red: #e30613;
+            --dark-gray: #1a1a1a;
+            --light-bg: #f8f9fa;
+            --accent-white: #ffffff;
+        }
+
+        html { scroll-behavior: smooth; }
+
         body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background-color: #121212;
-            color: #e0e0e0;
-            text-align: center;
-            padding: 50px 20px;
             margin: 0;
-        }
-        .container {
-            max-width: 800px;
-            margin: 0 auto;
-            background: #1e1e1e;
-            padding: 40px;
-            border-radius: 12px;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.5);
-            border-top: 5px solid #ffcc00;
-        }
-        h1 {
-            color: #ffcc00;
-            font-size: 2.5em;
-            margin-bottom: 10px;
-        }
-        h2 {
-            color: #ffffff;
-            font-size: 1.2em;
-            font-weight: 300;
-            margin-top: 0;
-            margin-bottom: 30px;
-        }
-        p {
-            font-size: 1.1em;
+            padding: 0;
+            font-family: 'Montserrat', sans-serif;
+            background-color: var(--accent-white);
+            color: var(--dark-gray);
             line-height: 1.6;
+            overflow-x: hidden;
         }
-        .badge {
-            background-color: #ffcc00;
-            color: #000;
-            padding: 5px 15px;
-            font-weight: bold;
-            border-radius: 20px;
+
+        /* --- GLITCH ANIMATION CORE --- */
+        .glitch {
+            position: relative;
             display: inline-block;
-            margin-bottom: 20px;
+        }
+
+        .glitch::before, .glitch::after {
+            content: attr(data-text);
+            position: absolute;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background: transparent;
+        }
+
+        .glitch::before {
+            left: 2px;
+            text-shadow: -2px 0 var(--main-red);
+            clip: rect(44px, 450px, 56px, 0);
+            animation: glitch-anim 5s infinite linear alternate-reverse;
+        }
+
+        .glitch::after {
+            left: -2px;
+            text-shadow: -2px 0 #00fff2;
+            clip: rect(44px, 450px, 56px, 0);
+            animation: glitch-anim2 5s infinite linear alternate-reverse;
+        }
+
+        @keyframes glitch-anim {
+            0% { clip: rect(31px, 9999px, 94px, 0); }
+            20% { clip: rect(62px, 9999px, 42px, 0); }
+            40% { clip: rect(16px, 9999px, 78px, 0); }
+            60% { clip: rect(87px, 9999px, 12px, 0); }
+            80% { clip: rect(53px, 9999px, 64px, 0); }
+            100% { clip: rect(24px, 9999px, 98px, 0); }
+        }
+
+        @keyframes glitch-anim2 {
+            0% { clip: rect(67px, 9999px, 34px, 0); }
+            20% { clip: rect(21px, 9999px, 88px, 0); }
+            40% { clip: rect(93px, 9999px, 5px, 0); }
+            60% { clip: rect(45px, 9999px, 67px, 0); }
+            80% { clip: rect(12px, 9999px, 45px, 0); }
+            100% { clip: rect(81px, 9999px, 14px, 0); }
+        }
+
+        /* --- REVEAL ON SCROLL --- */
+        .reveal {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s ease-out;
+        }
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* --- SCROLLBAR --- */
+        ::-webkit-scrollbar { width: 10px; }
+        ::-webkit-scrollbar-track { background: var(--dark-gray); }
+        ::-webkit-scrollbar-thumb { background: var(--main-red); border-radius: 5px; }
+
+        /* --- NAWIGACJA --- */
+        header {
+            background: rgba(255, 255, 255, 0.95);
+            padding: 15px 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 20px rgba(0,0,0,0.1);
+            backdrop-filter: blur(5px);
+        }
+
+        .logo-container { display: flex; flex-direction: column; }
+        .logo { font-size: 24px; font-weight: 900; text-transform: uppercase; color: var(--dark-gray); line-height: 1; }
+        .logo span { color: var(--main-red); }
+        .logo-sub { font-size: 10px; letter-spacing: 2px; font-weight: 700; color: #666; margin-top: 5px; text-transform: uppercase; }
+
+        nav { display: flex; align-items: center; }
+        nav a {
+            color: var(--dark-gray);
+            text-decoration: none;
+            margin-left: 20px;
+            font-weight: 700;
+            font-size: 12px;
+            text-transform: uppercase;
+            transition: 0.3s;
+        }
+        nav a:hover { color: var(--main-red); }
+
+        .nav-call {
+            background: var(--main-red);
+            color: white !important;
+            padding: 10px 20px;
+            border-radius: 5px;
+        }
+
+        /* --- TICKER --- */
+        .ticker-wrap {
+            width: 100%;
+            overflow: hidden;
+            background-color: #000;
+            padding: 14px 0;
+            border-bottom: 2px solid var(--main-red);
+        }
+        .ticker {
+            display: flex;
+            width: fit-content;
+            animation: ticker-move 35s linear infinite;
+            white-space: nowrap;
+        }
+        .ticker-item {
+            flex-shrink: 0;
+            padding: 0 60px;
+            font-size: 13px;
+            font-weight: 700;
+            color: #fff;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            display: flex;
+            align-items: center;
+        }
+        .ticker-item::before {
+            content: "";
+            display: inline-block;
+            width: 8px;
+            height: 8px;
+            background: var(--main-red);
+            border-radius: 50%;
+            margin-right: 20px;
+            box-shadow: 0 0 10px var(--main-red);
+        }
+        @keyframes ticker-move {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(-50%); }
+        }
+
+        /* --- HERO --- */
+        .hero {
+            position: relative;
+            background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('opony.jpg');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed; 
+            padding: 120px 5%;
+            display: flex;
+            align-items: center;
+            min-height: 500px;
+            color: white;
+        }
+        .hero h1 { font-size: 3.5rem; text-transform: uppercase; margin: 0; line-height: 1.1; font-weight: 900; }
+        .hero h1 span { color: var(--main-red); }
+
+        .btn-action {
+            background: var(--main-red);
+            color: white;
+            padding: 18px 45px;
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: 900;
+            display: inline-block;
+            margin-top: 25px;
+            transition: 0.3s;
+            border: none;
+            text-transform: uppercase;
+            cursor: pointer;
+        }
+        .btn-action:hover { transform: scale(1.05); background: #b3050f; box-shadow: 0 0 20px rgba(227, 6, 19, 0.4); }
+
+        /* --- USŁUGI --- */
+        .services-container { 
+            display: grid; 
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); 
+            gap: 30px; 
+            padding: 80px 5%; 
+            background: var(--light-bg); 
+        }
+        .card { 
+            background: white; 
+            padding: 40px; 
+            border-top: 5px solid var(--main-red); 
+            border-radius: 10px;
+            box-shadow: 0 15px 40px rgba(0,0,0,0.05); 
+            transition: 0.3s;
+        }
+        .card:hover { transform: translateY(-10px); }
+        .card h3 { margin-top: 0; font-size: 1.5rem; color: var(--main-red); text-transform: uppercase; }
+        .card ul { list-style: none; padding: 0; margin-top: 20px; }
+        .card li { padding: 10px 0; border-bottom: 1px solid #eee; font-weight: 500; }
+
+        /* --- GEOMETRIA 3D --- */
+        .geo-section {
+            padding: 100px 5%;
+            background: #111;
+            color: white;
+        }
+        .geo-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: center;
+        }
+        .geo-text-side h2 { font-size: 3rem; font-weight: 900; margin-bottom: 20px; }
+        .geo-text-side h2 span { color: var(--main-red); }
+        .geo-f-item { margin-bottom: 25px; padding-left: 20px; border-left: 3px solid var(--main-red); }
+        .geo-f-item strong { display: block; text-transform: uppercase; font-size: 14px; color: #fff; }
+        .geo-f-item p { margin: 0; font-size: 14px; color: #ccc; }
+        
+        .geo-placeholder {
+            width: 100%;
+            aspect-ratio: 4/3;
+            background: #1a1a1a;
+            border: 1px solid #333;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            border-radius: 15px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        /* --- MALOWANIE PROSZKOWE --- */
+        .realizacje-section { 
+            padding: 80px 5%; 
+            text-align: center; 
+            background: linear-gradient(rgba(0,0,0,0.9), rgba(0,0,0,0.9)), url('tlo2.jpeg');
+            background-size: cover;
+            background-attachment: fixed;
+            color: #fff;
+        }
+        
+        /* Przed/Po Slider */
+        .ba-slider {
+            position: relative;
+            width: 100%;
+            max-width: 600px;
+            margin: 50px auto 40px auto;
+            overflow: hidden;
+            border-radius: 12px;
+            aspect-ratio: 1/1;
+            border: 3px solid rgba(255,255,255,0.1);
+        }
+        .ba-img-back { width: 100%; height: 100%; object-fit: cover; display: block; }
+        .ba-overlay { position: absolute; top: 0; left: 0; width: 50%; height: 100%; overflow: hidden; z-index: 2; }
+        .ba-img-front { position: absolute; top: 0; left: 0; height: 100%; object-fit: cover; display: block; }
+        .ba-handle {
+            position: absolute;
+            top: 0; bottom: 0; left: 50%; width: 4px;
+            background: var(--main-red); cursor: ew-resize; z-index: 10;
+        }
+        .ba-handle::after {
+            content: "◀ ▶";
+            position: absolute; top: 50%; left: 50%;
+            transform: translate(-50%, -50%);
+            width: 44px; height: 44px;
+            background: white; border: 4px solid var(--main-red);
+            color: var(--main-red); border-radius: 50%;
+            display: flex; align-items: center; justify-content: center; font-weight: bold;
+        }
+
+        /* Sekcja Kolorów (Próbek) */
+        .color-palette {
+            display: flex;
+            justify-content: center;
+            gap: 40px;
+            margin: 30px auto 60px auto;
+            max-width: 900px;
+            flex-wrap: wrap;
+        }
+        .color-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 12px;
+            transition: 0.3s;
+        }
+        .color-item:hover { transform: translateY(-5px); }
+        .color-circle {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            background: #222;
+            border: 3px solid rgba(255,255,255,0.2);
+            overflow: hidden;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.4);
+        }
+        .color-circle img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+        }
+        .color-name { 
+            font-size: 13px; 
+            font-weight: 900; 
+            text-transform: uppercase; 
+            letter-spacing: 1px;
+            color: #eee;
+        }
+
+        .realizacje-grid { 
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        .realizacja-item { position: relative; overflow: hidden; border-radius: 8px; cursor: pointer; }
+        .realizacja-item img { width: 100%; height: 300px; object-fit: cover; transition: 0.5s; }
+        .realizacja-item:hover img { transform: scale(1.1); }
+
+        /* --- STOPKA --- */
+        .contact-footer {
+            background: #111;
+            color: white;
+            padding: 60px 5% 20px 5%;
+            border-top: 4px solid var(--main-red);
+        }
+        .footer-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+        }
+        .footer-col h4 { text-transform: uppercase; margin-bottom: 20px; }
+        .footer-col h4 span { color: var(--main-red); }
+        .footer-list { list-style: none; padding: 0; }
+        .footer-list li { margin-bottom: 10px; font-size: 14px; color: #ccc; display: flex; justify-content: space-between; }
+        
+        .status-badge {
+            display: inline-block; padding: 6px 12px; border-radius: 4px; font-size: 11px; font-weight: 900;
+            text-transform: uppercase; margin-top: 15px;
+        }
+        .status-open { color: #00ff88; border: 1px solid #00ff88; }
+        .status-closed { color: var(--main-red); border: 1px solid var(--main-red); }
+
+        /* --- MODALE --- */
+        #lightbox {
+            display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+            background: rgba(0,0,0,0.9); z-index: 3000; justify-content: center; align-items: center;
+        }
+        #lightbox img { max-width: 90%; max-height: 85%; border: 2px solid white; }
+
+        #contactModal { 
+            display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; 
+            background: rgba(0,0,0,0.8); z-index: 2000; justify-content: center; align-items: center; 
+        }
+        .modal-content { background: white; padding: 40px; border-radius: 10px; text-align: center; max-width: 400px; width: 90%; position: relative; color: #111; }
+        .phone-box { background: var(--light-bg); padding: 15px; border-radius: 8px; margin-bottom: 10px; text-decoration: none; display: block; color: var(--main-red); font-size: 1.5rem; font-weight: 900; }
+
+        .floating-call {
+            position: fixed; bottom: 20px; right: 20px; width: 60px; height: 60px;
+            background: var(--main-red); border-radius: 50%; display: none;
+            justify-content: center; align-items: center; z-index: 999; color: white; text-decoration: none; font-size: 24px;
+        }
+
+        @media (max-width: 768px) {
+            .hero h1 { font-size: 2.2rem; }
+            nav a:not(.nav-call) { display: none; }
+            .geo-content { grid-template-columns: 1fr; text-align: center; }
+            .floating-call { display: flex; }
         }
     </style>
 </head>
 <body>
-    <div class="container">
-        <span class="badge">STRONA W BUDOWIE</span>
-        <h1>Serwis Walczykiewicz</h1>
-        <h2>Profesjonalny serwis kół • Wulkanizacja • Naprawa felg • Malowanie proszkowe</h2>
-        <p>Właśnie przygotowujemy dla Was nową, lekką i nowoczesną stronę internetową. Już niedługo znajdziecie tutaj pełną galerię naszych realizacji oraz szczegółowy zakres usług.</p>
-        <p>Do zobaczenia wkrótce!</p>
+
+<header>
+    <div class="logo-container">
+        <div class="logo glitch" data-text="WALCZYKIEWICZ SERWIS">WALCZYKIEWICZ <span>SERWIS</span></div>
+        <div class="logo-sub">OSTRZESZÓW</div>
     </div>
+    <nav>
+        <a href="#oferta">Oferta</a>
+        <a href="#geometria">Geometria 3D</a>
+        <a href="#realizacje">Lakiernia</a>
+        <a href="#lokalizacja">Lokalizacja</a>
+        <a href="javascript:void(0)" class="nav-call" onclick="openModal()">Zadzwoń</a>
+    </nav>
+</header>
+
+<div class="ticker-wrap">
+    <div class="ticker">
+        <div class="ticker-item">Serwis Opon</div>
+        <div class="ticker-item">Mechanika Pojazdowa</div>
+        <div class="ticker-item">Geometria 3D</div>
+        <div class="ticker-item">Malowanie Proszkowe</div>
+        <div class="ticker-item">Prostowanie Felg</div>
+        <div class="ticker-item">Druk Części 3D</div>
+        <div class="ticker-item">Serwis Opon</div>
+        <div class="ticker-item">Mechanika Pojazdowa</div>
+        <div class="ticker-item">Geometria 3D</div>
+        <div class="ticker-item">Malowanie Proszkowe</div>
+        <div class="ticker-item">Prostowanie Felg</div>
+        <div class="ticker-item">Druk Części 3D</div>
+    </div>
+</div>
+
+<section class="hero">
+    <div>
+        <h1 class="glitch" data-text="PROFESJONALNY SERWIS SAMOCHODOWY"><span>PROFESJONALNY</span> SERWIS<br>SAMOCHODOWY</h1>
+        <p style="font-size: 1.2rem; margin: 15px 0; font-weight: 700;">Ostrzeszów, ul. Sikorskiego 66c</p>
+        <button class="btn-action" onclick="openModal()">Umów wizytę</button>
+    </div>
+</section>
+
+<section class="services-container reveal" id="oferta">
+    <div class="card">
+        <h3>Koła i Felgi</h3>
+        <ul>
+            <li>Serwis opon (Osobowe / Ciężarowe)</li>
+            <li>Geometria kół 3D</li>
+            <li>Prostowanie felg aluminiowych</li>
+            <li>Wulkanizacja i wyważanie</li>
+        </ul>
+    </div>
+    <div class="card">
+        <h3>Mechanika</h3>
+        <ul>
+            <li>Diagnostyka komputerowa</li>
+            <li>Naprawy zawieszenia i hamulców</li>
+            <li>Serwis olejowy i wymiana filtrów</li>
+            <li>Serwis Motocykli i Quadów</li>
+        </ul>
+    </div>
+    <div class="card">
+        <h3>Renowacja</h3>
+        <ul>
+            <li>Malowanie proszkowe felg</li>
+            <li>Piaskowanie elementów metalowych</li>
+            <li>Druk części 3D na zamówienie</li>
+        </ul>
+    </div>
+</section>
+
+<section class="geo-section" id="geometria">
+    <div class="geo-content reveal">
+        <div class="geo-text-side">
+            <h2 style="text-transform: uppercase;">Geometria <span>3D</span></h2>
+            <p>Ustawiamy zbieżność przy użyciu technologii 3D. Precyzyjny pomiar gwarantuje bezpieczeństwo i chroni Twoje opony przed nierównym zużyciem.</p>
+            <div class="geo-f-item">
+                <strong>Najwyższa Precyzja</strong>
+                <p>System kamer wysokiej rozdzielczości analizuje parametry z dokładnością do milimetra.</p>
+            </div>
+            <div class="geo-f-item">
+                <strong>Raport dla klienta</strong>
+                <p>Po usłudze otrzymujesz pełny wydruk parametrów przed i po regulacji.</p>
+            </div>
+        </div>
+        <div class="geo-placeholder">
+            <span style="font-size: 60px;">⚖️</span>
+            <p style="font-weight: 900; margin-top: 15px;">DIAGNOSTYKA 3D SCAN</p>
+        </div>
+    </div>
+</section>
+
+<section class="realizacje-section" id="realizacje">
+    <div class="reveal">
+        <h2 style="text-transform: uppercase; font-size: 2.5rem; font-weight: 900;">Malowanie <span style="color: var(--main-red);">Proszkowe</span></h2>
+        <p style="color: #ccc;">Najwyższa trwałość i perfekcyjny wygląd Twoich felg.</p>
+
+        <div class="ba-slider" id="beforeAfterSlider">
+            <img src="po.jpg" alt="Po malowaniu" class="ba-img-back">
+            <div class="ba-overlay" id="sliderOverlay">
+                <img src="przed.jpg" alt="Przed malowaniem" class="ba-img-front" id="frontImg">
+            </div>
+            <div class="ba-handle" id="sliderHandle"></div>
+        </div>
+
+        <p style="text-transform: uppercase; letter-spacing: 2px; font-weight: 900; color: var(--main-red); margin-bottom: 20px;">Dostępne Kolory Lakierowania Felg:</p>
+        <div class="color-palette">
+            <div class="color-item">
+                <div class="color-circle">
+                    <img src="black-shade.jpg" alt="Black Shade" onerror="this.style.opacity='0'">
+                </div>
+                <span class="color-name">Black Shade</span>
+            </div>
+            <div class="color-item">
+                <div class="color-circle">
+                    <img src="black-magic.jpg" alt="Black Magic" onerror="this.style.opacity='0'">
+                </div>
+                <span class="color-name">Black Magic</span>
+            </div>
+            <div class="color-item">
+                <div class="color-circle">
+                    <img src="silver.jpg" alt="Silver" onerror="this.style.opacity='0'">
+                </div>
+                <span class="color-name">Silver</span>
+            </div>
+        </div>
+
+        <div class="realizacje-grid">
+            <div class="realizacja-item" onclick="expandImage(this)"><img src="1.jpg" alt="Realizacja"></div>
+            <div class="realizacja-item" onclick="expandImage(this)"><img src="2.jpg" alt="Realizacja"></div>
+            <div class="realizacja-item" onclick="expandImage(this)"><img src="3.jpg" alt="Realizacja"></div>
+        </div>
+    </div>
+</section>
+
+<section id="lokalizacja">
+    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2456.78!2d17.9!3d51.4!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zNTHCsDI0JzAwLjAiTiAxN8KwNTQnMDAuMCJF!5e0!3m2!1spl!2spl!4v123456789" width="100%" height="450" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+</section>
+
+<footer class="contact-footer">
+    <div class="footer-container">
+        <div class="footer-col">
+            <div class="logo" style="color: white; margin-bottom: 15px;">WALCZYKIEWICZ <span>SERWIS</span></div>
+            <p style="font-size: 13px; color: #888;">Profesjonalna mechanika i renowacja felg w Ostrzeszowie.</p>
+            <div id="serviceStatus" class="status-badge">Sprawdzanie...</div>
+        </div>
+        <div class="footer-col">
+            <h4>Godziny <span>Otwarcia</span></h4>
+            <ul class="footer-list">
+                <li><span>Pon - Pt:</span> <span>8:00 - 17:00</span></li>
+                <li><span>Sobota:</span> <span>8:00 - 13:00</span></li>
+                <li><span>Niedziela:</span> <span style="color: var(--main-red);">Zamknięte</span></li>
+            </ul>
+        </div>
+        <div class="footer-col">
+            <h4>Kontakt</h4>
+            <ul class="footer-list" style="display: block;">
+                <li>📍 ul. Sikorskiego 66c, Ostrzeszów</li>
+                <li style="margin-top: 10px;">📞 603 444 085</li>
+                <li>📞 883 020 511</li>
+            </ul>
+        </div>
+    </div>
+    <div style="text-align: center; margin-top: 50px; font-size: 11px; color: #444;">© 2026 Walczykiewicz Serwis.</div>
+</footer>
+
+<a href="tel:603444085" class="floating-call">📞</a>
+
+<div id="lightbox" onclick="this.style.display='none'"><img id="expandedImg" src=""></div>
+<div id="contactModal">
+    <div class="modal-content">
+        <span style="position:absolute; top:15px; right:20px; cursor:pointer; font-size:25px;" onclick="closeModal()">×</span>
+        <h2 style="color: var(--main-red);">ZADZWOŃ</h2>
+        <a href="tel:603444085" class="phone-box">603 444 085</a>
+        <a href="tel:883020511" class="phone-box">883 020 511</a>
+    </div>
+</div>
+
+<script>
+    function openModal() { document.getElementById('contactModal').style.display = 'flex'; }
+    function closeModal() { document.getElementById('contactModal').style.display = 'none'; }
+    function expandImage(el) { 
+        document.getElementById('expandedImg').src = el.querySelector('img').src;
+        document.getElementById('lightbox').style.display = 'flex';
+    }
+
+    // Reveal on scroll logic
+    function reveal() {
+        var reveals = document.querySelectorAll(".reveal");
+        for (var i = 0; i < reveals.length; i++) {
+            var windowHeight = window.innerHeight;
+            var elementTop = reveals[i].getBoundingClientRect().top;
+            var elementVisible = 150;
+            if (elementTop < windowHeight - elementVisible) {
+                reveals[i].classList.add("active");
+            }
+        }
+    }
+    window.addEventListener("scroll", reveal);
+    reveal(); // Wywołanie na starcie
+
+    // Slider Przed/Po
+    const slider = document.getElementById('beforeAfterSlider');
+    const overlay = document.getElementById('sliderOverlay');
+    const frontImg = document.getElementById('frontImg');
+    const handle = document.getElementById('sliderHandle');
+    let isDragging = false;
+
+    function moveSlider(x) {
+        const rect = slider.getBoundingClientRect();
+        let position = (x - rect.left) / rect.width;
+        if (position < 0) position = 0; if (position > 1) position = 1;
+        frontImg.style.width = slider.offsetWidth + 'px';
+        handle.style.left = position * 100 + '%';
+        overlay.style.width = position * 100 + '%';
+    }
+
+    slider.addEventListener('mousedown', () => isDragging = true);
+    window.addEventListener('mouseup', () => isDragging = false);
+    window.addEventListener('mousemove', (e) => { if(isDragging) moveSlider(e.clientX); });
+    slider.addEventListener('touchstart', () => isDragging = true);
+    window.addEventListener('touchend', () => isDragging = false);
+    slider.addEventListener('touchmove', (e) => { if(isDragging) moveSlider(e.touches[0].clientX); });
+
+    // Status Otwarcia
+    function updateStatus() {
+        const now = new Date();
+        const day = now.getDay();
+        const hr = now.getHours();
+        const el = document.getElementById('serviceStatus');
+        let open = (day >= 1 && day <= 5 && hr >= 8 && hr < 17) || (day === 6 && hr >= 8 && hr < 13);
+        el.innerText = open ? "● OTWARTE - Zapraszamy" : "● OBECNIE ZAMKNIĘTE";
+        el.className = open ? "status-badge status-open" : "status-badge status-closed";
+    }
+
+    window.addEventListener('resize', () => { frontImg.style.width = slider.offsetWidth + 'px'; });
+    updateStatus();
+    frontImg.style.width = slider.offsetWidth + 'px';
+</script>
+
 </body>
 </html>
