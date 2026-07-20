@@ -307,6 +307,29 @@
             font-size: 16px;
         }
 
+        .prostowanie-img-box {
+            width: 100%;
+            aspect-ratio: 4/3;
+            background: rgba(255,255,255,0.03);
+            border: 1px solid rgba(255,255,255,0.1);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border-radius: 12px;
+            overflow: hidden;
+            border-bottom: 4px solid var(--main-blue);
+            cursor: pointer;
+        }
+        .prostowanie-img-box img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: 0.5s;
+        }
+        .prostowanie-img-box:hover img {
+            transform: scale(1.05);
+        }
+
         /* --- LAKIERNIA --- */
         .realizacje-section { 
             padding: 80px 5%; 
@@ -571,7 +594,7 @@
     </div>
 </section>
 
-<!-- NOWA ZAKŁADKA: PROSTOWANIE FELG -->
+<!-- SEKCJA: PROSTOWANIE FELG Z GRAFIKĄ PNG -->
 <section class="prostowanie-section" id="prostowanie">
     <div class="reveal" style="max-width: 1200px; margin: 0 auto;">
         <h2 style="text-transform: uppercase; font-size: 2.5rem; font-weight: 900; text-align: center; margin-bottom: 10px;">Prostowanie <span style="color: var(--main-blue);">Felg</span></h2>
@@ -589,15 +612,10 @@
                 </ul>
             </div>
             
-            <div class="prostowanie-col">
-                <h3>Dlaczego warto?</h3>
-                <p>Jazda na skrzywionej feldze negatywnie wpływa na cały układ jezdny Twojego samochodu, niszcząc elementy zawieszenia i ogumienie.</p>
-                <ul class="prostowanie-list">
-                    <li><strong>Ochrona zawieszenia:</strong> Usunięcie bicia oszczędza drążki, wahacze i łożyska.</li>
-                    <li><strong>Bezpieczeństwo jazdy:</strong> Stabilność auta przy dużych prędkościach na autostradach.</li>
-                    <li><strong>Idealne wyważenie:</strong> Prosta felga pozwala na perfekcyjne ułożenie ciężarków i opony.</li>
-                    <li><strong>Szybkie terminy realizacji:</strong> Szanujemy Twój czas – większość napraw wykonujemy sprawnie na miejscu.</li>
-                </ul>
+            <div class="prostowanie-col" style="padding: 20px;">
+                <div class="prostowanie-img-box" onclick="expandImage(this)">
+                    <img src="prostowanie.png" alt="Prostowanie felg - serwis Walczykiewicz">
+                </div>
             </div>
         </div>
     </div>
@@ -746,7 +764,7 @@
         const hr = now.getHours();
         const el = document.getElementById('serviceStatus');
         if(!el) return;
-        let open = (day >= 1 && day <= 5 && hr >= 8 && hr < 17) || (day === 6 && hr >= 8 && hr < 13);
+        let open = (day >= 1 && day >= 1 && day <= 5 && hr >= 8 && hr < 17) || (day === 6 && hr >= 8 && hr < 13);
         el.innerText = open ? "● OTWARTE - Zapraszamy" : "● OBECNIE ZAMKNIĘTE";
         el.className = open ? "status-badge status-open" : "status-badge status-closed";
     }
