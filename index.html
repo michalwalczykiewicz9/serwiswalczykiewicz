@@ -253,6 +253,60 @@
             border-bottom: 4px solid var(--main-blue);
         }
 
+        /* --- PROSTOWANIE FELG --- */
+        .prostowanie-section {
+            padding: 100px 5%;
+            background: linear-gradient(rgba(0,0,0,0.9), rgba(0,0,0,0.9)), url('tlo2.jpeg');
+            background-size: cover;
+            background-attachment: fixed;
+            color: white;
+        }
+        .prostowanie-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 50px;
+            align-items: center;
+        }
+        .prostowanie-col {
+            background: rgba(255,255,255,0.03);
+            padding: 40px;
+            border-radius: 12px;
+            border: 1px solid rgba(255,255,255,0.05);
+            border-top: 4px solid var(--main-blue);
+        }
+        .prostowanie-col h3 {
+            font-size: 1.8rem;
+            text-transform: uppercase;
+            font-weight: 900;
+            margin-top: 0;
+            margin-bottom: 15px;
+            color: var(--main-blue);
+        }
+        .prostowanie-col p { color: #ccc; font-size: 14px; margin-bottom: 25px; }
+        
+        .prostowanie-list {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+        .prostowanie-list li {
+            padding: 12px 0;
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+            font-size: 14px;
+            color: #eee;
+            display: flex;
+            align-items: center;
+        }
+        .prostowanie-list li::before {
+            content: "✓";
+            color: var(--main-blue);
+            font-weight: bold;
+            margin-right: 15px;
+            font-size: 16px;
+        }
+
         /* --- LAKIERNIA --- */
         .realizacje-section { 
             padding: 80px 5%; 
@@ -393,7 +447,7 @@
         }
 
         @media (max-width: 992px) {
-            .lakiernia-columns { grid-template-columns: 1fr; gap: 30px; }
+            .lakiernia-columns, .prostowanie-content { grid-template-columns: 1fr; gap: 30px; }
             .geo-content { grid-template-columns: 1fr; }
         }
 
@@ -420,6 +474,7 @@
     <nav>
         <a href="#oferta">Oferta</a>
         <a href="#geometria">Geometria 3D</a>
+        <a href="#prostowanie">Prostowanie Felg</a>
         <a href="#realizacje">Lakiernia</a>
         <a href="javascript:void(0)" class="nav-call" onclick="openModal()">Zadzwoń</a>
     </nav>
@@ -430,14 +485,14 @@
         <div class="ticker-item">Serwis Opon</div>
         <div class="ticker-item">Mechanika Pojazdowa</div>
         <div class="ticker-item">Geometria 3D</div>
-        <div class="ticker-item">Malowanie Proszkowe</div>
         <div class="ticker-item">Prostowanie Felg</div>
+        <div class="ticker-item">Malowanie Proszkowe</div>
         <div class="ticker-item">Druk Części 3D</div>
         <div class="ticker-item">Serwis Opon</div>
         <div class="ticker-item">Mechanika Pojazdowa</div>
         <div class="ticker-item">Geometria 3D</div>
-        <div class="ticker-item">Malowanie Proszkowe</div>
         <div class="ticker-item">Prostowanie Felg</div>
+        <div class="ticker-item">Malowanie Proszkowe</div>
         <div class="ticker-item">Druk Części 3D</div>
     </div>
 </div>
@@ -516,6 +571,38 @@
     </div>
 </section>
 
+<!-- NOWA ZAKŁADKA: PROSTOWANIE FELG -->
+<section class="prostowanie-section" id="prostowanie">
+    <div class="reveal" style="max-width: 1200px; margin: 0 auto;">
+        <h2 style="text-transform: uppercase; font-size: 2.5rem; font-weight: 900; text-align: center; margin-bottom: 10px;">Prostowanie <span style="color: var(--main-blue);">Felg</span></h2>
+        <p style="color: #ccc; text-align: center; margin-bottom: 40px; max-width: 800px; margin-left: auto; margin-right: auto;">Przywracamy fabryczną geometryczną precyzję felgom aluminiowym i stalowym. Usuwamy bicie boki i promienia, eliminując drgania kierownicy oraz nierównomierne zużycie opon.</p>
+
+        <div class="prostowanie-content">
+            <div class="prostowanie-col">
+                <h3>Precyzyjna Regeneracja</h3>
+                <p>Nawet mocno uszkodzone felgi po najechaniu na dziurę czy krawężnik mogą zostać uratowane dzięki specjalistycznemu sprzętowi hydraulicznemu.</p>
+                <ul class="prostowanie-list">
+                    <li><strong>Eliminacja bicia góra-dół oraz na boki:</strong> Przywracamy idealny okrąg felgi.</li>
+                    <li><strong>Bezpieczna technologia na zimno i ciepło:</strong> Dobór metody do stopu aluminium, aby uniknąć pęknięć materiału.</li>
+                    <li><strong>Kontrola stanu technicznego:</strong> Dokładna ocena struktury felgi pod kątem mikropęknięć przed rozpoczęciem prac.</li>
+                    <li><strong>Natychmiastowa poprawa komfortu:</strong> Koniec z drganiami na kierownicy i podłodze podczas jazdy.</li>
+                </ul>
+            </div>
+            
+            <div class="prostowanie-col">
+                <h3>Dlaczego warto?</h3>
+                <p>Jazda na skrzywionej feldze negatywnie wpływa na cały układ jezdny Twojego samochodu, niszcząc elementy zawieszenia i ogumienie.</p>
+                <ul class="prostowanie-list">
+                    <li><strong>Ochrona zawieszenia:</strong> Usunięcie bicia oszczędza drążki, wahacze i łożyska.</li>
+                    <li><strong>Bezpieczeństwo jazdy:</strong> Stabilność auta przy dużych prędkościach na autostradach.</li>
+                    <li><strong>Idealne wyważenie:</strong> Prosta felga pozwala na perfekcyjne ułożenie ciężarków i opony.</li>
+                    <li><strong>Szybkie terminy realizacji:</strong> Szanujemy Twój czas – większość napraw wykonujemy sprawnie na miejscu.</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</section>
+
 <section class="realizacje-section" id="realizacje">
     <div class="reveal">
         <h2 style="text-transform: uppercase; font-size: 2.5rem; font-weight: 900;">Lakiernia <span style="color: var(--main-blue);">Felg</span></h2>
@@ -571,7 +658,7 @@
     <div class="footer-container">
         <div class="footer-col">
             <div class="logo" style="color: white; margin-bottom: 15px;">WALCZYKIEWICZ <span>SERWIS</span></div>
-            <p style="font-size: 13px; color: #888;">Profesjonalna mechanika, wulkanizacja i renowacja felg. Obsługujemy region: Ostrzeszów, Kępno, Syców, Mikstat, Ostrów Wielkopolski.</p>
+            <p style="font-size: 13px; color: #888;">Profesjonalna mechanika, wulkanizacja, prostowanie i renowacja felg. Obsługujemy region: Ostrzeszów, Kępno, Syców, Mikstat, Ostrów Wielkopolski.</p>
             <div id="serviceStatus" class="status-badge">Sprawdzanie...</div>
         </div>
         <div class="footer-col">
