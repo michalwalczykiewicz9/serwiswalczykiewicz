@@ -3,11 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Wulkanizacja & Geometria 3D | Serwis Walczykiewicz Ostrzeszów, Kępno, Syców, Ostrów Wlkp.</title>
+    <title>Wulkanizacja, Geometria 3D & Piaskowanie | Serwis Walczykiewicz Ostrzeszów, Kępno, Syców, Ostrów Wlkp.</title>
     <link rel="icon" type="image/png" href="icon.png">
     
-    <meta name="description" content="Profesjonalna wulkanizacja, geometria 3D Invento oraz lakiernia i renowacja felg. Serwis opon Walczykiewicz - Ostrzeszów, Kępno, Syców, Mikstat, Ostrów Wielkopolski i okolice. Zapraszamy!">
-    <meta name="keywords" content="wulkanizacja ostrzeszów, serwis opon kępno, geometria 3d syców, lakiernia felg ostrów wielkopolski, prostowanie felg mikstat, renowacja felg ostrzeszów, opony kępno, mechanika pojazdowa">
+    <meta name="description" content="Profesjonalna wulkanizacja, geometria 3D Invento, lakiernia proszkowa oraz precyzyjne piaskowanie i renowacja felg. Serwis Walczykiewicz - Ostrzeszów, Kępno, Syców, Mikstat, Ostrów Wielkopolski i okolice. Zapraszamy!">
+    <meta name="keywords" content="wulkanizacja ostrzeszów, serwis opon kępno, geometria 3d syców, lakiernia felg ostrów wielkopolski, piaskowanie ostrzeszów, piaskowanie felg kępno, prostowanie felg mikstat, renowacja felg ostrzeszów, opony kępno, mechanika pojazdowa">
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700;900&display=swap" rel="stylesheet">
     <style>
         :root {
@@ -88,7 +88,7 @@
             transition: 0.3s;
             position: relative;
         }
-        nav a:not(.nav-call)::after {
+        nav a:not(.nav-call):::after {
             content: '';
             position: absolute;
             width: 0;
@@ -338,6 +338,58 @@
             transform: scale(1.05);
         }
 
+        /* --- SEKCJA: PIASKOWANIE (NOWA) --- */
+        .piaskowanie-section {
+            padding: 100px 5%;
+            background: var(--light-bg);
+            color: var(--dark-gray);
+        }
+        .piaskowanie-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 50px;
+            align-items: center;
+        }
+        .piaskowanie-col {
+            background: white;
+            padding: 40px;
+            border-radius: 12px;
+            box-shadow: 0 15px 40px rgba(0,0,0,0.05);
+            border-top: 4px solid var(--main-blue);
+        }
+        .piaskowanie-col h3 {
+            font-size: 1.8rem;
+            text-transform: uppercase;
+            font-weight: 900;
+            margin-top: 0;
+            margin-bottom: 15px;
+            color: var(--main-blue);
+        }
+        .piaskowanie-col p { color: #555; font-size: 14px; margin-bottom: 25px; }
+        .piaskowanie-list { list-style: none; padding: 0; margin: 0; }
+        .piaskowanie-list li {
+            padding: 12px 0;
+            border-bottom: 1px solid #eee;
+            font-size: 14px;
+            color: var(--dark-gray);
+            display: flex;
+            align-items: center;
+        }
+        .piaskowanie-list li::before {
+            content: "✓";
+            color: var(--main-blue);
+            font-weight: bold;
+            margin-right: 15px;
+            font-size: 16px;
+        }
+        .piaskowanie-gallery {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+        }
+
         /* --- LAKIERNIA --- */
         .realizacje-section { 
             padding: 80px 5%; 
@@ -478,7 +530,7 @@
         }
 
         @media (max-width: 992px) {
-            .lakiernia-columns, .prostowanie-content, .geo-content { grid-template-columns: 1fr; gap: 30px; }
+            .lakiernia-columns, .prostowanie-content, .geo-content, .piaskowanie-content { grid-template-columns: 1fr; gap: 30px; }
         }
 
         @media (max-width: 768px) {
@@ -487,6 +539,7 @@
             .geo-content { text-align: center; }
             .geo-f-item { border-left: none; border-top: 2px solid var(--main-blue); padding-left: 0; padding-top: 15px; }
             .floating-call { display: flex; }
+            .piaskowanie-gallery { grid-template-columns: 1fr; }
         }
     </style>
 </head>
@@ -505,6 +558,7 @@
         <a href="#oferta">Oferta</a>
         <a href="#geometria">Geometria 3D</a>
         <a href="#prostowanie">Prostowanie Felg</a>
+        <a href="#piaskowanie">Piaskowanie</a>
         <a href="#realizacje">Lakiernia</a>
         <a href="javascript:void(0)" class="nav-call" onclick="openModal()">Zadzwoń</a>
     </nav>
@@ -516,12 +570,14 @@
         <div class="ticker-item">Mechanika Pojazdowa</div>
         <div class="ticker-item">Geometria 3D</div>
         <div class="ticker-item">Prostowanie Felg</div>
+        <div class="ticker-item">Piaskowanie i Śrutowanie</div>
         <div class="ticker-item">Malowanie Proszkowe</div>
         <div class="ticker-item">Druk Części 3D</div>
         <div class="ticker-item">Serwis Opon</div>
         <div class="ticker-item">Mechanika Pojazdowa</div>
         <div class="ticker-item">Geometria 3D</div>
         <div class="ticker-item">Prostowanie Felg</div>
+        <div class="ticker-item">Piaskowanie i Śrutowanie</div>
         <div class="ticker-item">Malowanie Proszkowe</div>
         <div class="ticker-item">Druk Części 3D</div>
     </div>
@@ -530,7 +586,7 @@
 <section class="hero">
     <div>
         <h1><span>PROFESJONALNY</span> SERWIS<br>SAMOCHODOWY</h1>
-        <p style="font-size: 1.2rem; margin: 15px 0; font-weight: 700;">Wulkanizacja i Mechanika: Ostrzeszów, Kępno, Syców, Ostrów Wlkp.</p>
+        <p style="font-size: 1.2rem; margin: 15px 0; font-weight: 700;">Wulkanizacja, Mechanika i Lakiernia Felg: Ostrzeszów, Kępno, Syców, Ostrów Wlkp.</p>
         <div style="font-size: 1.2rem; margin: 20px 0; font-weight: 900; line-height: 1.8; text-transform: uppercase; background: rgba(0,0,0,0.4); padding: 15px; border-radius: 5px; display: inline-block; text-align: left;">
             Adres: ul. Generała Władysława Sikorskiego 66c, Ostrzeszów<br>
             Tel: 603 444 085 &nbsp;|&nbsp;  Tel: 883 020 511
@@ -543,7 +599,7 @@
 <section class="services-container reveal" id="oferta">
     <div class="card">
         <h3>Koła i Opony</h3>
-        <ul>
+        <ul class="prostowanie-list" style="list-style: none; padding: 0;">
             <li>Serwis opon osobowych</li>
             <li>Serwis opon ciężarowych TIR</li>
             <li>Serwis opon rolnicznych i maszyn przemysłowych</li>
@@ -553,7 +609,7 @@
     </div>
     <div class="card">
         <h3>Mechanika i  naprawy</h3>
-        <ul>
+        <ul class="prostowanie-list" style="list-style: none; padding: 0;">
             <li>Diagnostyka komputerowa pojazdu</li>
             <li>Naprawy zawieszenia i układów hamulcowych</li>
             <li>Serwis olejowy i naprawy bieżące</li>
@@ -561,26 +617,25 @@
         </ul>
     </div>
     <div class="card">
-        <h3>Renowacyja</h3>
-        <ul>
-            <li>Malowanie proszkowe</li>
-            <li>Piaskowanie elementów</li>
-            <li>Malowanie na mokro</li>
-            <li>Prostowanie felg aluminiowych</li>
-            <li>Prostowanie felg stalowych</li>
+        <h3>Renowacja i Obróbka</h3>
+        <ul class="prostowanie-list" style="list-style: none; padding: 0;">
+            <li>Piaskowanie i przygotowanie powierzchni</li>
+            <li>Malowanie proszkowe felg i elementów</li>
+            <li>Malowanie na mokro systemowe</li>
+            <li>Prostowanie felg aluminiowych i stalowych</li>
             <li>Toczenie felg, naprawa powierzchni czołowych</li>
         </ul>
     </div>
-        <div class="card">
+    <div class="card">
         <h3>Inne</h3>
-        <ul>
-            <li>Druk częsci techniką 3D z plastiku</li>
+        <ul class="prostowanie-list" style="list-style: none; padding: 0;">
+            <li>Druk części techniką 3D z plastiku</li>
             <li>Spawanie TIG/MIG/MAG aluminium, stali nierdzewnych</li>
         </ul>
     </div>
 </section>
 
-<!-- SEKCJA: GEOMETRIA 3D Z GRAFIKĄ PNG -->
+<!-- SEKCJA: GEOMETRIA 3D -->
 <section class="geo-section" id="geometria">
     <div class="geo-content reveal">
         <div class="geo-text-side">
@@ -612,10 +667,11 @@
     </div>
 </section>
 
+<!-- SEKCJA: PROSTOWANIE FELG -->
 <section class="prostowanie-section" id="prostowanie">
     <div class="reveal" style="max-width: 1200px; margin: 0 auto;">
         <h2 style="text-transform: uppercase; font-size: 2.5rem; font-weight: 900; text-align: center; margin-bottom: 10px;">Prostowanie <span style="color: var(--main-blue);">Felg</span></h2>
-        <p style="color: #ccc; text-align: center; margin-bottom: 40px; max-width: 800px; margin-left: auto; margin-right: auto;">Przywracamy fabryczną geometryczną precyzję felgom aluminiowym i stalowym. Usuwamy bicie boki i promienia, eliminując drgania kierownicy oraz nierównomierne zużycie opon.</p>
+        <p style="color: #ccc; text-align: center; margin-bottom: 40px; max-width: 800px; margin-left: auto; margin-right: auto;">Przywracamy fabryczną geometryczną precyzję felgom aluminiowym i stalowym. Usuwamy bicie boczne i promieniowe, eliminując drgania kierownicy oraz nierównomierne zużycie opon.</p>
 
         <div class="prostowanie-content">
             <div class="prostowanie-col">
@@ -638,6 +694,37 @@
     </div>
 </section>
 
+<!-- SEKCJA: PIASKOWANIE (NOWA ZAKŁADKA) -->
+<section class="piaskowanie-section" id="piaskowanie">
+    <div class="reveal" style="max-width: 1200px; margin: 0 auto;">
+        <h2 style="text-transform: uppercase; font-size: 2.5rem; font-weight: 900; text-align: center; margin-bottom: 10px;">Piaskowanie <span style="color: var(--main-blue);">i Oczyszczanie</span></h2>
+        <p style="color: #555; text-align: center; margin-bottom: 40px; max-width: 800px; margin-left: auto; margin-right: auto;">Oferujemy profesjonalną obróbkę strumieniowo-ścierną elementów stalowych i aluminiowych. Dokładnie usuwamy starą farbę, rdzę i zanieczyszczenia, przygotowując powierzchnię pod idealny lakier w regionie **Ostrzeszów, Kępno, Syców, Ostrów Wielkopolski**.</p>
+
+        <div class="piaskowanie-content">
+            <div class="piaskowanie-gallery">
+                <div class="prostowanie-img-box" onclick="expandImage(this)">
+                    <img src="piaskowanie.jpg" alt="Piaskowanie felg i elementów gabarytowych - Walczykiewicz Serwis">
+                </div>
+                <div class="prostowanie-img-box" onclick="expandImage(this)">
+                    <img src="piaskowanie2.jpg" alt="Efekt oczyszczania felgi - piaskowanie Ostrzeszów">
+                </div>
+            </div>
+
+            <div class="piaskowanie-col">
+                <h3>Dokładne Przygotowanie Podłoża</h3>
+                <p>Piaskowanie to najważniejszy etap renowacji. Gwarantuje idealną przyczepność powłok malarskich oraz odsłania faktyczny stan techniczny materiału.</p>
+                <ul class="piaskowanie-list">
+                    <li><strong>Skuteczne usuwanie korozji i lakieru:</strong> Usuwamy stare warstwy z najtrudniej dostępnych zakamarków felgi.</li>
+                    <li><strong>Odpowiednia chropowatość:</strong> Nadajemy powierzchni strukturę ułatwiającą wiązanie podkładu proszkowego.</li>
+                    <li><strong>Bezpieczeństwo felg aluminiowych:</strong> Dobieramy odpowiednią frakcję i rodzaj ścierniwa, aby nie naruszyć struktury metalu.</li>
+                    <li><strong>Wszechstronność zastosowań:</strong> Oczyszczamy nie tylko felgi, ale też elementy zawieszenia, zaciski hamulcowe i profile stalowe.</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- SEKCJA: LAKIERNIA -->
 <section class="realizacje-section" id="realizacje">
     <div class="reveal">
         <h2 style="text-transform: uppercase; font-size: 2.5rem; font-weight: 900;">Lakiernia <span style="color: var(--main-blue);">Felg</span></h2>
@@ -694,7 +781,7 @@
     <div class="footer-container">
         <div class="footer-col">
             <div class="logo" style="color: white; margin-bottom: 15px;">WALCZYKIEWICZ <span>SERWIS</span></div>
-            <p style="font-size: 13px; color: #888;">Profesjonalna mechanika, wulkanizacja, prostowanie i renowacja felg. Obsługujemy region: Ostrzeszów, Kępno, Syców, Mikstat, Ostrów Wielkopolski.</p>
+            <p style="font-size: 13px; color: #888;">Profesjonalna mechanika, wulkanizacja, piaskowanie, prostowanie i kompleksowa renowacja felg. Obsługujemy region: Ostrzeszów, Kępno, Syców, Mikstat, Ostrów Wielkopolski.</p>
             <div id="serviceStatus" class="status-badge">Sprawdzanie...</div>
         </div>
         <div class="footer-col">
