@@ -188,26 +188,50 @@
         }
         .btn-action:hover { transform: scale(1.05); background: var(--main-blue-hover); box-shadow: 0 0 25px rgba(0, 118, 255, 0.4); }
 
-        /* --- USŁUGI --- */
+        /* --- ZMODYFIKOWANA SEKCJA OFERTY (CIEMNY STYL DLA Lepszej CZYTELNOŚCI) --- */
         .services-container { 
             display: grid; 
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); 
             gap: 30px; 
             padding: 80px 5%; 
-            background: var(--light-bg); 
+            background: #111111; 
         }
         .card { 
-            background: white; 
+            background: #1a1a1a; 
             padding: 40px; 
             border-top: 5px solid var(--main-blue); 
             border-radius: 10px;
-            box-shadow: 0 15px 40px rgba(0,0,0,0.05); 
+            box-shadow: 0 15px 40px rgba(0,0,0,0.3); 
             transition: 0.3s;
         }
-        .card:hover { transform: translateY(-10px); box-shadow: 0 20px 40px rgba(0,0,0,0.1); }
-        .card h3 { margin-top: 0; font-size: 1.5rem; color: var(--main-blue); text-transform: uppercase; font-weight: 900; }
+        .card:hover { 
+            transform: translateY(-10px); 
+            box-shadow: 0 20px 40px rgba(0, 118, 255, 0.15); 
+        }
+        .card h3 { 
+            margin-top: 0; 
+            font-size: 1.5rem; 
+            color: #ffffff; 
+            text-transform: uppercase; 
+            font-weight: 900; 
+        }
         .card ul { list-style: none; padding: 0; margin-top: 20px; }
-        .card li { padding: 10px 0; border-bottom: 1px solid #eee; font-weight: 500; }
+        .card li { 
+            padding: 12px 0; 
+            border-bottom: 1px solid rgba(255,255,255,0.05); 
+            font-weight: 500; 
+            color: #e0e0e0; 
+            font-size: 14px;
+            display: flex;
+            align-items: center;
+        }
+        .card li::before {
+            content: "✓";
+            color: var(--main-blue);
+            font-weight: bold;
+            margin-right: 15px;
+            font-size: 16px;
+        }
 
         /* --- GEOMETRIA 3D --- */
         .geo-section {
@@ -599,7 +623,7 @@
 <section class="services-container reveal" id="oferta">
     <div class="card">
         <h3>Koła i Opony</h3>
-        <ul class="prostowanie-list" style="list-style: none; padding: 0;">
+        <ul>
             <li>Serwis opon osobowych</li>
             <li>Serwis opon ciężarowych TIR</li>
             <li>Serwis opon rolnicznych i maszyn przemysłowych</li>
@@ -608,8 +632,8 @@
         </ul>
     </div>
     <div class="card">
-        <h3>Mechanika i  naprawy</h3>
-        <ul class="prostowanie-list" style="list-style: none; padding: 0;">
+        <h3>Mechanika i naprawy</h3>
+        <ul>
             <li>Diagnostyka komputerowa pojazdu</li>
             <li>Naprawy zawieszenia i układów hamulcowych</li>
             <li>Serwis olejowy i naprawy bieżące</li>
@@ -618,7 +642,7 @@
     </div>
     <div class="card">
         <h3>Renowacja i Obróbka</h3>
-        <ul class="prostowanie-list" style="list-style: none; padding: 0;">
+        <ul>
             <li>Piaskowanie i przygotowanie powierzchni</li>
             <li>Malowanie proszkowe felg i elementów</li>
             <li>Malowanie na mokro systemowe</li>
@@ -628,7 +652,7 @@
     </div>
     <div class="card">
         <h3>Inne</h3>
-        <ul class="prostowanie-list" style="list-style: none; padding: 0;">
+        <ul>
             <li>Druk części techniką 3D z plastiku</li>
             <li>Spawanie TIG/MIG/MAG aluminium, stali nierdzewnych</li>
         </ul>
@@ -728,7 +752,7 @@
 <section class="realizacje-section" id="realizacje">
     <div class="reveal">
         <h2 style="text-transform: uppercase; font-size: 2.5rem; font-weight: 900;">Lakiernia <span style="color: var(--main-blue);">Felg</span></h2>
-        <p style="color: #ccc; margin-bottom: 40px;">Kompleksowa renowacja dostosowana do każdego rodzaju wykończenia. Profesjonalne odnawianie felg dla klientów z okolic Ostrowa Wielkopolskiego, Kępna i Sycowa.</p>
+        <p style="color: #ccc; margin-bottom: 40px;">Kompleksowa renowacja dostosowana to każdego rodzaju wykończenia. Profesjonalne odnawianie felg dla klientów z okolic Ostrowa Wielkopolskiego, Kępna i Sycowa.</p>
 
         <div class="lakiernia-columns">
             <div class="lakiernia-col">
@@ -788,8 +812,8 @@
         <div class="footer-col">
             <h4>Godziny <span>Otwarcia</span></h4>
             <ul class="footer-list">
-                <li><span>Pon - Pt:</span> <span>8:00 - 17:00</span></li>
-                <li><span>Sobota:</span> <span>8:00 - 13:00</span></li>
+                <li><span>Pon - Pt:</span> <span>8:00 - 18:00</span></li>
+                <li><span>Sobota:</span> <span>NIECZYNNE (możliwość kontaktu)</span></li>
                 <li><span>Niedziela:</span> <span style="color: var(--main-blue);">Zamknięte</span></li>
             </ul>
         </div>
