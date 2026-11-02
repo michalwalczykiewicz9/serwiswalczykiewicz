@@ -11,7 +11,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;900&display=swap" rel="stylesheet">
     <style>
         :root {
-            /* Nowoczesna paleta barw z akcentami cyan/royal blue */
+            /* Odświeżona, nowoczesna paleta barw */
             --main-accent: #0088ff;
             --main-accent-hover: #0066cc;
             --accent-gradient: linear-gradient(135deg, #0088ff 0%, #00d2ff 100%);
@@ -424,7 +424,7 @@
             gap: 20px;
         }
 
-        /* --- LAKIERNIA --- */
+        /* --- LAKIERNIA (SEKCJA SKRÓCONA Z PRZEJŚCIEM DO REALIZACJI) --- */
         .lakiernia-intro-section { 
             padding: 90px 5%; 
             text-align: center; 
@@ -436,9 +436,10 @@
         
         .lakiernia-columns {
             display: grid;
-            grid-template-columns: 1fr;
-            max-width: 800px;
-            margin: 0 auto 40px auto;
+            grid-template-columns: 1fr 1fr;
+            gap: 50px;
+            max-width: 1200px;
+            margin: 40px auto;
             text-align: left;
         }
         .lakiernia-col {
@@ -449,20 +450,19 @@
             border-top: 4px solid var(--main-accent);
         }
         .lakiernia-col h3 {
-            font-size: 2rem;
+            font-size: 1.8rem;
             text-transform: uppercase;
             font-weight: 900;
             margin-top: 0;
-            margin-bottom: 20px;
+            margin-bottom: 15px;
             color: var(--main-accent);
-            text-align: center;
         }
+        .lakiernia-col p { color: var(--text-muted); font-size: 14px; margin-bottom: 25px; }
 
         .wet-paint-list {
             list-style: none;
             padding: 0;
-            margin: 0 auto;
-            max-width: 650px;
+            margin: 0;
         }
         .wet-paint-list li {
             padding: 12px 0;
@@ -552,4 +552,298 @@
             nav a:not(.nav-call) { display: none; }
             .geo-content { text-align: center; }
             .geo-f-item { border-left: none; border-top: 2px solid var(--main-accent); padding-left: 0; padding-top: 15px; }
-            .floating-call { display:
+            .floating-call { display: flex; }
+            .piaskowanie-gallery { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+<body>
+
+<div class="seo-top-bar">
+    OSTRZESZÓW | ul. Generała Władysława Sikorskiego 66c | PROFESJONALNY SERWIS OPON I FELG
+</div>
+
+<header>
+    <div class="logo-container">
+        <div class="logo">WALCZYKIEWICZ <span>SERWIS</span></div>
+        <div class="logo-sub">OSTRZESZÓW ul. Generała Władysława Sikorskiego 66c</div>
+    </div>
+    <nav>
+        <a href="#oferta">Oferta</a>
+        <a href="#geometria">Geometria 3D</a>
+        <a href="#prostowanie">Prostowanie Felg</a>
+        <a href="#piaskowanie">Piaskowanie</a>
+        <a href="#lakiernia">Lakiernia</a>
+        <a href="realizacje.html">Lakiernia - Realizacje</a>
+        <a href="javascript:void(0)" class="nav-call" onclick="openModal()">Zadzwoń</a>
+    </nav>
+</header>
+
+<div class="ticker-wrap">
+    <div class="ticker">
+        <div class="ticker-item">Serwis Opon</div>
+        <div class="ticker-item">Mechanika Pojazdowa</div>
+        <div class="ticker-item">Geometria 3D</div>
+        <div class="ticker-item">Prostowanie Felg</div>
+        <div class="ticker-item">Piaskowanie i Śrutowanie</div>
+        <div class="ticker-item">Malowanie Proszkowe</div>
+        <div class="ticker-item">Druk Części 3D</div>
+        <div class="ticker-item">Serwis Opon</div>
+        <div class="ticker-item">Mechanika Pojazdowa</div>
+        <div class="ticker-item">Geometria 3D</div>
+        <div class="ticker-item">Prostowanie Felg</div>
+        <div class="ticker-item">Piaskowanie i Śrutowanie</div>
+        <div class="ticker-item">Malowanie Proszkowe</div>
+        <div class="ticker-item">Druk Części 3D</div>
+    </div>
+</div>
+
+<section class="hero">
+    <div>
+        <h1><span>PROFESJONALNY</span> SERWIS<br>SAMOCHODOWY</h1>
+        <p style="font-size: 1.2rem; margin: 15px 0; font-weight: 700; color: var(--text-muted);">Wulkanizacja, Mechanika i Lakiernia Felg: Ostrzeszów, Kępno, Syców, Ostrów Wlkp.</p>
+        <div style="font-size: 1.1rem; margin: 20px 0; font-weight: 700; line-height: 1.8; text-transform: uppercase; background: rgba(22, 27, 34, 0.85); border: 1px solid var(--card-border); padding: 15px 20px; border-radius: 8px; display: inline-block; text-align: left;">
+            Adres: ul. Generała Władysława Sikorskiego 66c, Ostrzeszów<br>
+            Tel: 603 444 085 &nbsp;|&nbsp; Tel: 883 020 511
+        </div>
+        <br>
+        <button class="btn-action" onclick="openModal()">Umów wizytę</button>
+    </div>
+</section>
+
+<section class="services-container reveal" id="oferta">
+    <div class="card">
+        <h3>Koła i Opony</h3>
+        <ul>
+            <li>Serwis opon osobowych</li>
+            <li>Serwis opon ciężarowych TIR</li>
+            <li>Serwis opon rolnicznych i maszyn przemysłowych</li>
+            <li>Wulkanizacja i komputerowe wyważanie</li>
+            <li>Geometria pojazdu, zbieżność - metodą 3D</li>
+        </ul>
+    </div>
+    <div class="card">
+        <h3>Mechanika i naprawy</h3>
+        <ul>
+            <li>Diagnostyka komputerowa pojazdu</li>
+            <li>Naprawy zawieszenia i układów hamulcowych</li>
+            <li>Serwis olejowy i naprawy bieżące</li>
+            <li>Serwis motocykli oraz quadów</li>
+        </ul>
+    </div>
+    <div class="card">
+        <h3>Renowacja i Obróbka</h3>
+        <ul>
+            <li>Piaskowanie i przygotowanie powierzchni</li>
+            <li>Malowanie proszkowe felg i elementów</li>
+            <li>Malowanie na mokro systemowe</li>
+            <li>Prostowanie felg aluminiowych i stalowych</li>
+            <li>Toczenie felg, naprawa powierzchni czołowych</li>
+        </ul>
+    </div>
+    <div class="card">
+        <h3>Inne</h3>
+        <ul>
+            <li>Druk części techniką 3D z plastiku</li>
+            <li>Spawanie TIG/MIG/MAG aluminium, stali nierdzewnych</li>
+        </ul>
+    </div>
+</section>
+
+<!-- SEKCJA: GEOMETRIA 3D -->
+<section class="geo-section" id="geometria">
+    <div class="geo-content reveal">
+        <div class="geo-text-side">
+            <h2 style="text-transform: uppercase;">Geometria <span>3D</span></h2>
+            <p style="color: var(--text-muted);">Ustawiamy zbieżność kół przy użyciu zaawansowanej technologii trójwymiarowej. Nasz serwis obsługuje kierowców z miast takich jak <strong>Ostrzeszów, Kępno, Syców, Mikstat oraz Ostrów Wielkopolski</strong>. Precyzyjny pomiar gwarantuje pełne bezpieczeństwo, stabilność prowadzenia oraz chroni Twoje opony przed przedwczesnym i nierównym zużyciem.</p>
+            
+            <div class="geo-f-grid">
+                <div class="geo-f-item">
+                    <strong>Najnowsza Technologia INVENTO</strong>
+                    <p>Zaawansowany system pomiarowy oparty na precyzyjnych markerach pasywnych, odpornych na uszkodzenia mechaniczne.</p>
+                </div>
+                <div class="geo-f-item">
+                    <strong>Generalny Pomiar Auta</strong>
+                    <p>Kompleksowa weryfikacja geometrii podwozia pod kątem zachowania prawidłowych, fabrycznych wymiarów konstrukcyjnych pojazdu.</p>
+                </div>
+                <div class="geo-f-item">
+                    <strong>Analiza i Reset Czujników</strong>
+                    <p>Pełna diagnostyka komputerowa, spis kluczowych danych układu jezdnego oraz profesjonalny reset czujników kąta skrętu kierownicy.</p>
+                </div>
+                <div class="geo-f-item">
+                    <strong>Dedykowany Raport dla Klienta</strong>
+                    <p>Po wykonanej usłudze otrzymujesz czytelny, spersonalizowany raport dla Twojej marki pojazdu z parametrami przed i po regulacji.</p>
+                </div>
+            </div>
+        </div>
+        <div class="geo-img-box" onclick="expandImage(this)">
+            <img src="geometria3d.png" alt="Geometria 3D - serwis Walczykiewicz">
+        </div>
+    </div>
+</section>
+
+<!-- SEKCJA: PROSTOWANIE FELG -->
+<section class="prostowanie-section" id="prostowanie">
+    <div class="reveal" style="max-width: 1200px; margin: 0 auto;">
+        <h2 style="text-transform: uppercase; font-size: 2.5rem; font-weight: 900; text-align: center; margin-bottom: 10px;">Prostowanie <span style="background: var(--accent-gradient); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">Felg</span></h2>
+        <p style="color: var(--text-muted); text-align: center; margin-bottom: 40px; max-width: 800px; margin-left: auto; margin-right: auto;">Przywracamy fabryczną geometryczną precyzję felgom aluminiowym i stalowym. Usuwamy bicie boczne i promieniowe, eliminując drgania kierownicy oraz nierównomierne zużycie opon.</p>
+
+        <div class="prostowanie-content">
+            <div class="prostowanie-col">
+                <h3>Precyzyjna Regeneracja</h3>
+                <p>Nawet mocno uszkodzone felgi po najechaniu na dziurę czy krawężnik mogą zostać uratowane dzięki specjalistycznemu sprzętowi hydraulicznemu.</p>
+                <ul class="prostowanie-list">
+                    <li><strong>Eliminacja bicia góra-dół oraz na boki:</strong> Przywracamy idealny okrąg felgi.</li>
+                    <li><strong>Bezpieczna technologia na zimno i ciepło:</strong> Dobór metody do stopu aluminium, aby uniknąć pęknięć materiału.</li>
+                    <li><strong>Kontrola stanu technicznego:</strong> Dokładna ocena struktury felgi pod kątem mikropęknięć przed rozpoczęciem prac.</li>
+                    <li><strong>Natychmiastowa poprawa komfortu:</strong> Koniec z drganiami na kierownicy i podłodze podczas jazdy.</li>
+                </ul>
+            </div>
+            
+            <div class="prostowanie-col" style="padding: 20px;">
+                <div class="prostowanie-img-box" onclick="expandImage(this)">
+                    <img src="prostowanie.png" alt="Prostowanie felg - serwis Walczykiewicz">
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- SEKCJA: PIASKOWANIE -->
+<section class="piaskowanie-section" id="piaskowanie">
+    <div class="reveal" style="max-width: 1200px; margin: 0 auto;">
+        <h2 style="text-transform: uppercase; font-size: 2.5rem; font-weight: 900; text-align: center; margin-bottom: 10px;">Piaskowanie <span style="background: var(--accent-gradient); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">i Oczyszczanie</span></h2>
+        <p style="color: var(--text-muted); text-align: center; margin-bottom: 40px; max-width: 800px; margin-left: auto; margin-right: auto;">Oferujemy profesjonalną obróbkę strumieniowo-ścierną elementów stalowych i aluminiowych. Dokładnie usuwamy starą farbę, rdzę i zanieczyszczenia, przygotowując powierzchnię pod idealny lakier w regionie <strong>Ostrzeszów, Kępno, Syców, Ostrów Wielkopolski</strong>.</p>
+
+        <div class="piaskowanie-content">
+            <div class="piaskowanie-gallery">
+                <div class="prostowanie-img-box" onclick="expandImage(this)">
+                    <img src="piaskowanie.jpg" alt="Piaskowanie felg - Walczykiewicz Serwis">
+                </div>
+                <div class="prostowanie-img-box" onclick="expandImage(this)">
+                    <img src="piaskowanie2.jpg" alt="Efekt oczyszczania felgi - piaskowanie Ostrzeszów">
+                </div>
+            </div>
+
+            <div class="piaskowanie-col">
+                <h3>Dokładne Przygotowanie Podłoża</h3>
+                <p>Piaskowanie to najważniejszy etap renowacji. Gwarantuje idealną przyczepność powłok malarskich oraz odsłania faktyczny stan techniczny materiału.</p>
+                <ul class="piaskowanie-list">
+                    <li><strong>Skuteczne usuwanie korozji i lakieru:</strong> Usuwamy stare warstwy z najtrudniej dostępnych zakamarków felgi.</li>
+                    <li><strong>Odpowiednia chropowatość:</strong> Nadajemy powierzchni strukturę ułatwiającą wiązanie podkładu proszkowego.</li>
+                    <li><strong>Bezpieczeństwo felg aluminiowych:</strong> Dobieramy odpowiednią frakcję i rodzaj ścierniwa, aby nie naruszyć struktury metalu.</li>
+                    <li><strong>Wszechstronność zastosowań:</strong> Oczyszczamy nie tylko felgi, ale też elementy zawieszenia, zaciski hamulcowe i profile stalowe.</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- SEKCJA: LAKIERNIA (WSTĘP + LINK DO GALERII REALIZACJI) -->
+<section class="lakiernia-intro-section" id="lakiernia">
+    <div class="reveal">
+        <h2 style="text-transform: uppercase; font-size: 2.5rem; font-weight: 900;">Lakiernia <span style="background: var(--accent-gradient); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">Felg</span></h2>
+        <p style="color: var(--text-muted); margin-bottom: 20px;">Kompleksowa renowacja dostosowana do każdego rodzaju wykończenia. Profesjonalne odnawianie felg dla klientów z okolic Ostrowa Wielkopolskiego, Kępna i Sycowa.</p>
+
+        <div class="lakiernia-columns">
+            <div class="lakiernia-col">
+                <h3>Malowanie Proszkowe</h3>
+                <p>Najwyższa trwałość mechaniczna i odporność na warunki atmosferyczne dzięki aplikacji elektrostatycznej i utwardzaniu w piecu konwekcyjnym.</p>
+            </div>
+
+            <div class="lakiernia-col">
+                <h3>Malowanie na Mokro</h3>
+                <p>Profesjonalne lakierowanie systemowe (płynne), dedykowane do uzyskania spektakularnych efektów wizualnych i fabrycznego wyglądu.</p>
+                
+                <ul class="wet-paint-list">
+                    <li><strong>Idealne odwzorowanie kolorów:</strong> Paleta fabrycznych odcieni OEM.</li>
+                    <li><strong>Perfekcyjna gładkość struktury:</strong> Głęboki połysk lub elegancja matu.</li>
+                    <li><strong>Doskonałe podłoże pod CNC:</strong> Idealny montaż pod szlif diamentowy.</li>
+                </ul>
+            </div>
+        </div>
+
+        <div style="margin-top: 30px;">
+            <p style="font-size: 1.1rem; color: #fff; font-weight: 700;">Chcesz zobaczyć efekty naszej pracy i porównania Przed / Po?</p>
+            <a href="realizacje.html" class="btn-gallery">Zobacz pełną galerię realizacji →</a>
+        </div>
+    </div>
+</section>
+
+<footer class="contact-footer">
+    <div class="footer-container">
+        <div class="footer-col">
+            <div class="logo" style="color: white; margin-bottom: 15px;">WALCZYKIEWICZ <span>SERWIS</span></div>
+            <p style="font-size: 13px; color: var(--text-muted);">Profesjonalna mechanika, wulkanizacja, piaskowanie, prostowanie i kompleksowa renowacja felg. Obsługujemy region: Ostrzeszów, Kępno, Syców, Mikstat, Ostrów Wielkopolski.</p>
+            <div id="serviceStatus" class="status-badge">Sprawdzanie...</div>
+        </div>
+        <div class="footer-col">
+            <h4>Godziny <span>Otwarcia</span></h4>
+            <ul class="footer-list">
+                <li><span>Pon - Pt:</span> <span>8:00 - 18:00</span></li>
+                <li><span>Sobota:</span> <span>NIECZYNNE (kontakt telefoniczny)</span></li>
+                <li><span>Niedziela:</span> <span style="color: var(--main-accent);">Zamknięte</span></li>
+            </ul>
+        </div>
+        <div class="footer-col">
+            <h4>Kontakt</h4>
+            <ul class="footer-list" style="display: block;">
+                <li>📍 ul. Sikorskiego 66c, Ostrzeszów</li>
+                <li style="margin-top: 10px;">📞 603 444 085</li>
+                <li>📞 883 020 511</li>
+            </ul>
+        </div>
+    </div>
+    <div style="text-align: center; margin-top: 50px; font-size: 11px; color: var(--text-muted);">© 2026 Walczykiewicz Serwis.</div>
+</footer>
+
+<a href="tel:603444085" class="floating-call">📞</a>
+
+<div id="lightbox" onclick="this.style.display='none'"><img id="expandedImg" src=""></div>
+<div id="contactModal" style="display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.85); z-index: 2000; justify-content: center; align-items: center;">
+    <div class="modal-content">
+        <span style="position:absolute; top:15px; right:20px; cursor:pointer; font-size:25px;" onclick="closeModal()">×</span>
+        <h2 style="color: var(--main-accent); font-weight: 900; text-transform: uppercase; margin-bottom: 25px;">ZADZWOŃ</h2>
+        <a href="tel:603444085" class="phone-box">603 444 085</a>
+        <a href="tel:883020511" class="phone-box">883 020 511</a>
+    </div>
+</div>
+
+<script>
+    function openModal() { document.getElementById('contactModal').style.display = 'flex'; }
+    function closeModal() { document.getElementById('contactModal').style.display = 'none'; }
+    function expandImage(el) { 
+        document.getElementById('expandedImg').src = el.querySelector('img').src;
+        document.getElementById('lightbox').style.display = 'flex';
+    }
+
+    function reveal() {
+        var reveals = document.querySelectorAll(".reveal");
+        for (var i = 0; i < reveals.length; i++) {
+            var windowHeight = window.innerHeight;
+            var elementTop = reveals[i].getBoundingClientRect().top;
+            var elementVisible = 150;
+            if (elementTop < windowHeight - elementVisible) {
+                reveals[i].classList.add("active");
+            }
+        }
+    }
+    window.addEventListener("scroll", reveal);
+    reveal();
+
+    function updateStatus() {
+        const now = new Date();
+        const day = now.getDay();
+        const hr = now.getHours();
+        const el = document.getElementById('serviceStatus');
+        if(!el) return;
+        let open = (day >= 1 && day <= 5 && hr >= 8 && hr < 17) || (day === 6 && hr >= 8 && hr < 13);
+        el.innerText = open ? "● OTWARTE - Zapraszamy" : "● OBECNIE ZAMKNIĘTE";
+        el.className = open ? "status-badge status-open" : "status-badge status-closed";
+    }
+
+    updateStatus();
+</script>
+
+</body>
+</html>
