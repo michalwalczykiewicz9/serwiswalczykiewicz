@@ -8,14 +8,19 @@
     
     <meta name="description" content="Profesjonalna wulkanizacja, geometria 3D Invento, lakiernia proszkowa oraz precyzyjne piaskowanie i renowacja felg. Serwis Walczykiewicz - Ostrzeszów, Kępno, Syców, Mikstat, Ostrów Wielkopolski i okolice. Zapraszamy!">
     <meta name="keywords" content="wulkanizacja ostrzeszów, serwis opon kępno, geometria 3d syców, lakiernia felg ostrów wielkopolski, piaskowanie ostrzeszów, piaskowanie felg kępno, prostowanie felg mikstat, renowacja felg ostrzeszów, opony kępno, mechanika pojazdowa">
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700;900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;900&display=swap" rel="stylesheet">
     <style>
         :root {
-            --main-blue: #0076ff;
-            --main-blue-hover: #0056cc;
-            --dark-gray: #1a1a1a;
-            --light-bg: #f8f9fa;
-            --accent-white: #ffffff;
+            /* Odświeżona, nowoczesna paleta barw */
+            --main-accent: #0088ff;
+            --main-accent-hover: #0066cc;
+            --accent-gradient: linear-gradient(135deg, #0088ff 0%, #00d2ff 100%);
+            --dark-bg: #0d1117;
+            --card-bg: #161b22;
+            --card-border: rgba(255, 255, 255, 0.08);
+            --light-bg: #f3f5f8;
+            --text-main: #f0f6fc;
+            --text-muted: #8b949e;
         }
 
         html { scroll-behavior: smooth; }
@@ -24,15 +29,15 @@
             margin: 0;
             padding: 0;
             font-family: 'Montserrat', sans-serif;
-            background-color: var(--accent-white);
-            color: var(--dark-gray);
+            background-color: var(--dark-bg);
+            color: var(--text-main);
             line-height: 1.6;
             overflow-x: hidden;
         }
 
         /* --- SEO TOP BAR --- */
         .seo-top-bar {
-            background-color: var(--main-blue);
+            background: var(--accent-gradient);
             color: white;
             text-align: center;
             padding: 10px 5%;
@@ -55,12 +60,12 @@
 
         /* --- SCROLLBAR --- */
         ::-webkit-scrollbar { width: 10px; }
-        ::-webkit-scrollbar-track { background: var(--dark-gray); }
-        ::-webkit-scrollbar-thumb { background: var(--main-blue); border-radius: 5px; }
+        ::-webkit-scrollbar-track { background: var(--dark-bg); }
+        ::-webkit-scrollbar-thumb { background: var(--main-accent); border-radius: 5px; }
 
         /* --- NAWIGACJA --- */
         header {
-            background: rgba(255, 255, 255, 0.95);
+            background: rgba(13, 17, 23, 0.85);
             padding: 15px 5%;
             display: flex;
             justify-content: space-between;
@@ -68,18 +73,19 @@
             position: sticky;
             top: 0;
             z-index: 1000;
-            box-shadow: 0 2px 20px rgba(0,0,0,0.1);
-            backdrop-filter: blur(5px);
+            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.5);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid var(--card-border);
         }
 
         .logo-container { display: flex; flex-direction: column; }
-        .logo { font-size: 24px; font-weight: 900; text-transform: uppercase; color: var(--dark-gray); line-height: 1; letter-spacing: 0.5px; }
-        .logo span { color: var(--main-blue); }
-        .logo-sub { font-size: 10px; letter-spacing: 1px; font-weight: 700; color: #666; margin-top: 5px; text-transform: uppercase; }
+        .logo { font-size: 24px; font-weight: 900; text-transform: uppercase; color: #fff; line-height: 1; letter-spacing: 0.5px; }
+        .logo span { background: var(--accent-gradient); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+        .logo-sub { font-size: 10px; letter-spacing: 1px; font-weight: 700; color: var(--text-muted); margin-top: 5px; text-transform: uppercase; }
 
         nav { display: flex; align-items: center; }
         nav a {
-            color: var(--dark-gray);
+            color: var(--text-main);
             text-decoration: none;
             margin-left: 20px;
             font-weight: 700;
@@ -95,33 +101,34 @@
             height: 2px;
             bottom: -4px;
             left: 0;
-            background-color: var(--main-blue);
+            background: var(--accent-gradient);
             transition: width 0.3s ease;
         }
         nav a:not(.nav-call):hover::after {
             width: 100%;
         }
-        nav a:hover { color: var(--main-blue); }
+        nav a:hover { color: var(--main-accent); }
 
         .nav-call {
-            background: var(--main-blue);
+            background: var(--accent-gradient);
             color: white !important;
             padding: 10px 20px;
-            border-radius: 5px;
-            transition: background 0.3s, transform 0.3s;
+            border-radius: 6px;
+            transition: background 0.3s, transform 0.3s, box-shadow 0.3s;
+            box-shadow: 0 0 15px rgba(0, 136, 255, 0.3);
         }
         .nav-call:hover {
-            background: var(--main-blue-hover);
             transform: translateY(-2px);
+            box-shadow: 0 0 25px rgba(0, 136, 255, 0.6);
         }
 
         /* --- TICKER --- */
         .ticker-wrap {
             width: 100%;
             overflow: hidden;
-            background-color: #000;
+            background-color: #06090e;
             padding: 14px 0;
-            border-bottom: 2px solid var(--main-blue);
+            border-bottom: 1px solid var(--card-border);
         }
         .ticker {
             display: flex;
@@ -134,7 +141,7 @@
             padding: 0 60px;
             font-size: 13px;
             font-weight: 700;
-            color: #fff;
+            color: var(--text-main);
             text-transform: uppercase;
             letter-spacing: 2px;
             display: flex;
@@ -145,10 +152,10 @@
             display: inline-block;
             width: 8px;
             height: 8px;
-            background: var(--main-blue);
+            background: var(--main-accent);
             border-radius: 50%;
             margin-right: 20px;
-            box-shadow: 0 0 10px var(--main-blue);
+            box-shadow: 0 0 10px var(--main-accent);
         }
         @keyframes ticker-move {
             0% { transform: translateX(0); }
@@ -158,7 +165,7 @@
         /* --- HERO --- */
         .hero {
             position: relative;
-            background: linear-gradient(rgba(0,0,0,0.75), rgba(0,0,0,0.75)), url('opony.jpg');
+            background: linear-gradient(180deg, rgba(13, 17, 23, 0.7) 0%, rgba(13, 17, 23, 0.95) 100%), url('opony.jpg');
             background-size: cover;
             background-position: center;
             background-attachment: fixed; 
@@ -169,13 +176,13 @@
             color: white;
         }
         .hero h1 { font-size: 3.5rem; text-transform: uppercase; margin: 0; line-height: 1.15; font-weight: 900; letter-spacing: -1px; }
-        .hero h1 span { color: var(--main-blue); text-shadow: 0 0 20px rgba(0, 118, 255, 0.2); }
+        .hero h1 span { background: var(--accent-gradient); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
 
         .btn-action {
-            background: var(--main-blue);
+            background: var(--accent-gradient);
             color: white;
             padding: 18px 45px;
-            border-radius: 5px;
+            border-radius: 6px;
             text-decoration: none;
             font-weight: 900;
             display: inline-block;
@@ -185,28 +192,31 @@
             text-transform: uppercase;
             cursor: pointer;
             letter-spacing: 0.5px;
+            box-shadow: 0 4px 20px rgba(0, 136, 255, 0.4);
         }
-        .btn-action:hover { transform: scale(1.05); background: var(--main-blue-hover); box-shadow: 0 0 25px rgba(0, 118, 255, 0.4); }
+        .btn-action:hover { transform: scale(1.03); box-shadow: 0 0 30px rgba(0, 136, 255, 0.7); }
 
-        /* --- ZMODYFIKOWANA SEKCJA OFERTY (CIEMNY STYL DLA Lepszej CZYTELNOŚCI) --- */
+        /* --- SEKCJA OFERTY --- */
         .services-container { 
             display: grid; 
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); 
             gap: 30px; 
             padding: 80px 5%; 
-            background: #111111; 
+            background: var(--dark-bg); 
         }
         .card { 
-            background: #1a1a1a; 
+            background: var(--card-bg); 
             padding: 40px; 
-            border-top: 5px solid var(--main-blue); 
-            border-radius: 10px;
-            box-shadow: 0 15px 40px rgba(0,0,0,0.3); 
+            border: 1px solid var(--card-border);
+            border-top: 4px solid var(--main-accent); 
+            border-radius: 12px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.3); 
             transition: 0.3s;
         }
         .card:hover { 
-            transform: translateY(-10px); 
-            box-shadow: 0 20px 40px rgba(0, 118, 255, 0.15); 
+            transform: translateY(-8px); 
+            box-shadow: 0 20px 40px rgba(0, 136, 255, 0.15); 
+            border-color: rgba(0, 136, 255, 0.3);
         }
         .card h3 { 
             margin-top: 0; 
@@ -218,16 +228,16 @@
         .card ul { list-style: none; padding: 0; margin-top: 20px; }
         .card li { 
             padding: 12px 0; 
-            border-bottom: 1px solid rgba(255,255,255,0.05); 
+            border-bottom: 1px solid var(--card-border); 
             font-weight: 500; 
-            color: #e0e0e0; 
+            color: var(--text-muted); 
             font-size: 14px;
             display: flex;
             align-items: center;
         }
         .card li::before {
             content: "✓";
-            color: var(--main-blue);
+            color: var(--main-accent);
             font-weight: bold;
             margin-right: 15px;
             font-size: 16px;
@@ -236,7 +246,7 @@
         /* --- GEOMETRIA 3D --- */
         .geo-section {
             padding: 100px 5%;
-            background: linear-gradient(rgba(0,0,0,0.85), rgba(0,0,0,0.85)), url('oponynieaktualne.jpg');
+            background: linear-gradient(180deg, rgba(13, 17, 23, 0.9) 0%, rgba(13, 17, 23, 0.95) 100%), url('oponynieaktualne.jpg');
             background-size: cover;
             background-position: center;
             background-attachment: fixed;
@@ -251,28 +261,28 @@
             align-items: center;
         }
         .geo-text-side h2 { font-size: 3rem; font-weight: 900; margin-bottom: 20px; }
-        .geo-text-side h2 span { color: var(--main-blue); }
+        .geo-text-side h2 span { background: var(--accent-gradient); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
         .geo-f-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
             gap: 25px;
             margin-top: 35px;
         }
-        .geo-f-item { padding-left: 20px; border-left: 3px solid var(--main-blue); }
+        .geo-f-item { padding-left: 20px; border-left: 3px solid var(--main-accent); }
         .geo-f-item strong { display: block; text-transform: uppercase; font-size: 14px; color: #fff; margin-bottom: 5px; }
-        .geo-f-item p { margin: 0; font-size: 14px; color: #ccc; }
+        .geo-f-item p { margin: 0; font-size: 14px; color: var(--text-muted); }
         
         .geo-img-box {
             width: 100%;
             aspect-ratio: 4/3;
-            background: rgba(255,255,255,0.03);
-            border: 1px solid rgba(255,255,255,0.1);
+            background: var(--card-bg);
+            border: 1px solid var(--card-border);
             display: flex;
             justify-content: center;
             align-items: center;
             border-radius: 12px;
             overflow: hidden;
-            border-bottom: 4px solid var(--main-blue);
+            border-bottom: 4px solid var(--main-accent);
             cursor: pointer;
         }
         .geo-img-box img {
@@ -288,7 +298,7 @@
         /* --- PROSTOWANIE FELG --- */
         .prostowanie-section {
             padding: 100px 5%;
-            background: linear-gradient(rgba(0,0,0,0.9), rgba(0,0,0,0.9)), url('tlo2.jpeg');
+            background: linear-gradient(180deg, rgba(13, 17, 23, 0.95) 0%, rgba(13, 17, 23, 0.95) 100%), url('tlo2.jpeg');
             background-size: cover;
             background-attachment: fixed;
             color: white;
@@ -302,11 +312,11 @@
             align-items: center;
         }
         .prostowanie-col {
-            background: rgba(255,255,255,0.03);
+            background: var(--card-bg);
             padding: 40px;
             border-radius: 12px;
-            border: 1px solid rgba(255,255,255,0.05);
-            border-top: 4px solid var(--main-blue);
+            border: 1px solid var(--card-border);
+            border-top: 4px solid var(--main-accent);
         }
         .prostowanie-col h3 {
             font-size: 1.8rem;
@@ -314,9 +324,9 @@
             font-weight: 900;
             margin-top: 0;
             margin-bottom: 15px;
-            color: var(--main-blue);
+            color: var(--main-accent);
         }
-        .prostowanie-col p { color: #ccc; font-size: 14px; margin-bottom: 25px; }
+        .prostowanie-col p { color: var(--text-muted); font-size: 14px; margin-bottom: 25px; }
         
         .prostowanie-list {
             list-style: none;
@@ -325,15 +335,15 @@
         }
         .prostowanie-list li {
             padding: 12px 0;
-            border-bottom: 1px solid rgba(255,255,255,0.1);
+            border-bottom: 1px solid var(--card-border);
             font-size: 14px;
-            color: #eee;
+            color: var(--text-main);
             display: flex;
             align-items: center;
         }
         .prostowanie-list li::before {
             content: "✓";
-            color: var(--main-blue);
+            color: var(--main-accent);
             font-weight: bold;
             margin-right: 15px;
             font-size: 16px;
@@ -342,14 +352,14 @@
         .prostowanie-img-box {
             width: 100%;
             aspect-ratio: 4/3;
-            background: rgba(255,255,255,0.03);
-            border: 1px solid rgba(255,255,255,0.1);
+            background: var(--card-bg);
+            border: 1px solid var(--card-border);
             display: flex;
             justify-content: center;
             align-items: center;
             border-radius: 12px;
             overflow: hidden;
-            border-bottom: 4px solid var(--main-blue);
+            border-bottom: 4px solid var(--main-accent);
             cursor: pointer;
         }
         .prostowanie-img-box img {
@@ -362,11 +372,11 @@
             transform: scale(1.05);
         }
 
-        /* --- SEKCJA: PIASKOWANIE --- */
+        /* --- PIASKOWANIE --- */
         .piaskowanie-section {
             padding: 100px 5%;
-            background: var(--light-bg);
-            color: var(--dark-gray);
+            background: #0b0e14;
+            color: var(--text-main);
         }
         .piaskowanie-content {
             max-width: 1200px;
@@ -377,11 +387,11 @@
             align-items: center;
         }
         .piaskowanie-col {
-            background: white;
+            background: var(--card-bg);
             padding: 40px;
             border-radius: 12px;
-            box-shadow: 0 15px 40px rgba(0,0,0,0.05);
-            border-top: 4px solid var(--main-blue);
+            border: 1px solid var(--card-border);
+            border-top: 4px solid var(--main-accent);
         }
         .piaskowanie-col h3 {
             font-size: 1.8rem;
@@ -389,21 +399,21 @@
             font-weight: 900;
             margin-top: 0;
             margin-bottom: 15px;
-            color: var(--main-blue);
+            color: var(--main-accent);
         }
-        .piaskowanie-col p { color: #555; font-size: 14px; margin-bottom: 25px; }
+        .piaskowanie-col p { color: var(--text-muted); font-size: 14px; margin-bottom: 25px; }
         .piaskowanie-list { list-style: none; padding: 0; margin: 0; }
         .piaskowanie-list li {
             padding: 12px 0;
-            border-bottom: 1px solid #eee;
+            border-bottom: 1px solid var(--card-border);
             font-size: 14px;
-            color: var(--dark-gray);
+            color: var(--text-main);
             display: flex;
             align-items: center;
         }
         .piaskowanie-list li::before {
             content: "✓";
-            color: var(--main-blue);
+            color: var(--main-accent);
             font-weight: bold;
             margin-right: 15px;
             font-size: 16px;
@@ -414,11 +424,11 @@
             gap: 20px;
         }
 
-        /* --- LAKIERNIA --- */
-        .realizacje-section { 
-            padding: 80px 5%; 
+        /* --- LAKIERNIA (SEKCJA SKRÓCONA Z PRZEJŚCIEM DO REALIZACJI) --- */
+        .lakiernia-intro-section { 
+            padding: 90px 5%; 
             text-align: center; 
-            background: linear-gradient(rgba(0,0,0,0.92), rgba(0,0,0,0.92)), url('tlo2.jpeg');
+            background: linear-gradient(180deg, rgba(13, 17, 23, 0.95) 0%, rgba(13, 17, 23, 0.98) 100%), url('tlo2.jpeg');
             background-size: cover;
             background-attachment: fixed;
             color: #fff;
@@ -429,15 +439,15 @@
             grid-template-columns: 1fr 1fr;
             gap: 50px;
             max-width: 1200px;
-            margin: 40px auto 60px auto;
+            margin: 40px auto;
             text-align: left;
         }
         .lakiernia-col {
-            background: rgba(255,255,255,0.03);
+            background: var(--card-bg);
             padding: 40px;
             border-radius: 12px;
-            border: 1px solid rgba(255,255,255,0.05);
-            border-top: 4px solid var(--main-blue);
+            border: 1px solid var(--card-border);
+            border-top: 4px solid var(--main-accent);
         }
         .lakiernia-col h3 {
             font-size: 1.8rem;
@@ -445,37 +455,9 @@
             font-weight: 900;
             margin-top: 0;
             margin-bottom: 15px;
-            color: var(--main-blue);
+            color: var(--main-accent);
         }
-        .lakiernia-col p { color: #ccc; font-size: 14px; margin-bottom: 25px; }
-
-        .ba-slider {
-            position: relative;
-            width: 100%;
-            max-width: 500px;
-            margin: 0 auto 30px auto;
-            overflow: hidden;
-            border-radius: 12px;
-            aspect-ratio: 1/1;
-            border: 3px solid rgba(255,255,255,0.1);
-        }
-        .ba-img-back { width: 100%; height: 100%; object-fit: cover; display: block; }
-        .ba-overlay { position: absolute; top: 0; left: 0; width: 50%; height: 100%; overflow: hidden; z-index: 2; }
-        .ba-img-front { position: absolute; top: 0; left: 0; height: 100%; object-fit: cover; display: block; }
-        .ba-handle {
-            position: absolute;
-            top: 0; bottom: 0; left: 50%; width: 4px;
-            background: var(--main-blue); cursor: ew-resize; z-index: 10;
-        }
-        .ba-handle::after {
-            content: "◀ ▶";
-            position: absolute; top: 50%; left: 50%;
-            transform: translate(-50%, -50%);
-            width: 44px; height: 44px;
-            background: white; border: 4px solid var(--main-blue);
-            color: var(--main-blue); border-radius: 50%;
-            display: flex; align-items: center; justify-content: center; font-weight: bold; font-size: 12px;
-        }
+        .lakiernia-col p { color: var(--text-muted); font-size: 14px; margin-bottom: 25px; }
 
         .wet-paint-list {
             list-style: none;
@@ -484,37 +466,45 @@
         }
         .wet-paint-list li {
             padding: 12px 0;
-            border-bottom: 1px solid rgba(255,255,255,0.1);
+            border-bottom: 1px solid var(--card-border);
             font-size: 14px;
-            color: #eee;
+            color: var(--text-main);
             display: flex;
             align-items: center;
         }
         .wet-paint-list li::before {
             content: "✓";
-            color: var(--main-blue);
+            color: var(--main-accent);
             font-weight: bold;
             margin-right: 15px;
             font-size: 16px;
         }
 
-        .realizacje-grid { 
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 20px;
-            max-width: 1200px;
-            margin: 20px auto 40px auto;
+        .btn-gallery {
+            background: var(--accent-gradient);
+            color: white;
+            padding: 16px 36px;
+            border-radius: 6px;
+            text-decoration: none;
+            font-weight: 900;
+            display: inline-block;
+            margin-top: 20px;
+            transition: 0.3s;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            box-shadow: 0 4px 15px rgba(0, 136, 255, 0.3);
         }
-        .realizacja-item { position: relative; overflow: hidden; border-radius: 8px; cursor: pointer; border: 1px solid rgba(255,255,255,0.1); }
-        .realizacja-item img { width: 100%; height: 300px; object-fit: cover; transition: 0.5s; }
-        .realizacja-item:hover img { transform: scale(1.05); }
+        .btn-gallery:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 0 25px rgba(0, 136, 255, 0.6);
+        }
 
         /* --- STOPKA --- */
         .contact-footer {
-            background: #111;
+            background: #06090e;
             color: white;
             padding: 60px 5% 20px 5%;
-            border-top: 4px solid var(--main-blue);
+            border-top: 1px solid var(--card-border);
         }
         .footer-container {
             max-width: 1200px;
@@ -524,33 +514,33 @@
             gap: 40px;
         }
         .footer-col h4 { text-transform: uppercase; margin-bottom: 20px; font-weight: 900; font-size: 16px; }
-        .footer-col h4 span { color: var(--main-blue); }
+        .footer-col h4 span { color: var(--main-accent); }
         .footer-list { list-style: none; padding: 0; }
-        .footer-list li { margin-bottom: 10px; font-size: 14px; color: #ccc; display: flex; justify-content: space-between; }
+        .footer-list li { margin-bottom: 10px; font-size: 14px; color: var(--text-muted); display: flex; justify-content: space-between; }
         
         .status-badge {
             display: inline-block; padding: 6px 12px; border-radius: 4px; font-size: 11px; font-weight: 900;
             text-transform: uppercase; margin-top: 15px;
         }
-        .status-open { color: #00ff88; border: 1px solid #00ff88; }
-        .status-closed { color: var(--main-blue); border: 1px solid var(--main-blue); }
+        .status-open { color: #00ff88; border: 1px solid #00ff88; background: rgba(0,255,136,0.05); }
+        .status-closed { color: #ff4757; border: 1px solid #ff4757; background: rgba(255,71,87,0.05); }
 
         /* --- MODALE --- */
         #lightbox {
             display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%;
             background: rgba(0,0,0,0.9); z-index: 3000; justify-content: center; align-items: center;
         }
-        #lightbox img { max-width: 90%; max-height: 85%; border: 2px solid white; }
+        #lightbox img { max-width: 90%; max-height: 85%; border: 2px solid white; border-radius: 8px; }
 
-        .modal-content { background: white; padding: 40px; border-radius: 10px; text-align: center; max-width: 400px; width: 90%; position: relative; color: #111; }
-        .phone-box { background: var(--light-bg); padding: 15px; border-radius: 8px; margin-bottom: 10px; text-decoration: none; display: block; color: var(--main-blue); font-size: 1.5rem; font-weight: 900; transition: 0.3s; }
-        .phone-box:hover { background: #eef5ff; transform: scale(1.02); }
+        .modal-content { background: var(--card-bg); border: 1px solid var(--card-border); padding: 40px; border-radius: 12px; text-align: center; max-width: 400px; width: 90%; position: relative; color: var(--text-main); }
+        .phone-box { background: rgba(255,255,255,0.03); border: 1px solid var(--card-border); padding: 15px; border-radius: 8px; margin-bottom: 10px; text-decoration: none; display: block; color: var(--main-accent); font-size: 1.5rem; font-weight: 900; transition: 0.3s; }
+        .phone-box:hover { background: rgba(0,136,255,0.1); border-color: var(--main-accent); transform: scale(1.02); }
 
         .floating-call {
             position: fixed; bottom: 20px; right: 20px; width: 60px; height: 60px;
-            background: var(--main-blue); border-radius: 50%; display: none;
+            background: var(--accent-gradient); border-radius: 50%; display: none;
             justify-content: center; align-items: center; z-index: 999; color: white; text-decoration: none; font-size: 24px;
-            box-shadow: 0 4px 15px rgba(0, 118, 255, 0.4);
+            box-shadow: 0 4px 20px rgba(0, 136, 255, 0.5);
         }
 
         @media (max-width: 992px) {
@@ -561,7 +551,7 @@
             .hero h1 { font-size: 2.2rem; }
             nav a:not(.nav-call) { display: none; }
             .geo-content { text-align: center; }
-            .geo-f-item { border-left: none; border-top: 2px solid var(--main-blue); padding-left: 0; padding-top: 15px; }
+            .geo-f-item { border-left: none; border-top: 2px solid var(--main-accent); padding-left: 0; padding-top: 15px; }
             .floating-call { display: flex; }
             .piaskowanie-gallery { grid-template-columns: 1fr; }
         }
@@ -583,7 +573,8 @@
         <a href="#geometria">Geometria 3D</a>
         <a href="#prostowanie">Prostowanie Felg</a>
         <a href="#piaskowanie">Piaskowanie</a>
-        <a href="#realizacje">Lakiernia</a>
+        <a href="#lakiernia">Lakiernia</a>
+        <a href="realizacje.html">Lakiernia - Realizacje</a>
         <a href="javascript:void(0)" class="nav-call" onclick="openModal()">Zadzwoń</a>
     </nav>
 </header>
@@ -610,10 +601,10 @@
 <section class="hero">
     <div>
         <h1><span>PROFESJONALNY</span> SERWIS<br>SAMOCHODOWY</h1>
-        <p style="font-size: 1.2rem; margin: 15px 0; font-weight: 700;">Wulkanizacja, Mechanika i Lakiernia Felg: Ostrzeszów, Kępno, Syców, Ostrów Wlkp.</p>
-        <div style="font-size: 1.2rem; margin: 20px 0; font-weight: 900; line-height: 1.8; text-transform: uppercase; background: rgba(0,0,0,0.4); padding: 15px; border-radius: 5px; display: inline-block; text-align: left;">
+        <p style="font-size: 1.2rem; margin: 15px 0; font-weight: 700; color: var(--text-muted);">Wulkanizacja, Mechanika i Lakiernia Felg: Ostrzeszów, Kępno, Syców, Ostrów Wlkp.</p>
+        <div style="font-size: 1.1rem; margin: 20px 0; font-weight: 700; line-height: 1.8; text-transform: uppercase; background: rgba(22, 27, 34, 0.85); border: 1px solid var(--card-border); padding: 15px 20px; border-radius: 8px; display: inline-block; text-align: left;">
             Adres: ul. Generała Władysława Sikorskiego 66c, Ostrzeszów<br>
-            Tel: 603 444 085 &nbsp;|&nbsp;  Tel: 883 020 511
+            Tel: 603 444 085 &nbsp;|&nbsp; Tel: 883 020 511
         </div>
         <br>
         <button class="btn-action" onclick="openModal()">Umów wizytę</button>
@@ -664,7 +655,7 @@
     <div class="geo-content reveal">
         <div class="geo-text-side">
             <h2 style="text-transform: uppercase;">Geometria <span>3D</span></h2>
-            <p>Ustawiamy zbieżność kół przy użyciu zaawansowanej technologii trójwymiarowej. Nasz serwis obsługuje kierowców z miast takich jak <strong>Ostrzeszów, Kępno, Syców, Mikstat oraz Ostrów Wielkopolski</strong>. Precyzyjny pomiar gwarantuje pełne bezpieczeństwo, stabilność prowadzenia oraz chroni Twoje opony przed przedwczesnym i nierównym zużyciem.</p>
+            <p style="color: var(--text-muted);">Ustawiamy zbieżność kół przy użyciu zaawansowanej technologii trójwymiarowej. Nasz serwis obsługuje kierowców z miast takich jak <strong>Ostrzeszów, Kępno, Syców, Mikstat oraz Ostrów Wielkopolski</strong>. Precyzyjny pomiar gwarantuje pełne bezpieczeństwo, stabilność prowadzenia oraz chroni Twoje opony przed przedwczesnym i nierównym zużyciem.</p>
             
             <div class="geo-f-grid">
                 <div class="geo-f-item">
@@ -694,8 +685,8 @@
 <!-- SEKCJA: PROSTOWANIE FELG -->
 <section class="prostowanie-section" id="prostowanie">
     <div class="reveal" style="max-width: 1200px; margin: 0 auto;">
-        <h2 style="text-transform: uppercase; font-size: 2.5rem; font-weight: 900; text-align: center; margin-bottom: 10px;">Prostowanie <span style="color: var(--main-blue);">Felg</span></h2>
-        <p style="color: #ccc; text-align: center; margin-bottom: 40px; max-width: 800px; margin-left: auto; margin-right: auto;">Przywracamy fabryczną geometryczną precyzję felgom aluminiowym i stalowym. Usuwamy bicie boczne i promieniowe, eliminując drgania kierownicy oraz nierównomierne zużycie opon.</p>
+        <h2 style="text-transform: uppercase; font-size: 2.5rem; font-weight: 900; text-align: center; margin-bottom: 10px;">Prostowanie <span style="background: var(--accent-gradient); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">Felg</span></h2>
+        <p style="color: var(--text-muted); text-align: center; margin-bottom: 40px; max-width: 800px; margin-left: auto; margin-right: auto;">Przywracamy fabryczną geometryczną precyzję felgom aluminiowym i stalowym. Usuwamy bicie boczne i promieniowe, eliminując drgania kierownicy oraz nierównomierne zużycie opon.</p>
 
         <div class="prostowanie-content">
             <div class="prostowanie-col">
@@ -721,13 +712,13 @@
 <!-- SEKCJA: PIASKOWANIE -->
 <section class="piaskowanie-section" id="piaskowanie">
     <div class="reveal" style="max-width: 1200px; margin: 0 auto;">
-        <h2 style="text-transform: uppercase; font-size: 2.5rem; font-weight: 900; text-align: center; margin-bottom: 10px;">Piaskowanie <span style="color: var(--main-blue);">i Oczyszczanie</span></h2>
-        <p style="color: #555; text-align: center; margin-bottom: 40px; max-width: 800px; margin-left: auto; margin-right: auto;">Oferujemy profesjonalną obróbkę strumieniowo-ścierną elementów stalowych i aluminiowych. Dokładnie usuwamy starą farbę, rdzę i zanieczyszczenia, przygotowując powierzchnię pod idealny lakier w regionie **Ostrzeszów, Kępno, Syców, Ostrów Wielkopolski**.</p>
+        <h2 style="text-transform: uppercase; font-size: 2.5rem; font-weight: 900; text-align: center; margin-bottom: 10px;">Piaskowanie <span style="background: var(--accent-gradient); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">i Oczyszczanie</span></h2>
+        <p style="color: var(--text-muted); text-align: center; margin-bottom: 40px; max-width: 800px; margin-left: auto; margin-right: auto;">Oferujemy profesjonalną obróbkę strumieniowo-ścierną elementów stalowych i aluminiowych. Dokładnie usuwamy starą farbę, rdzę i zanieczyszczenia, przygotowując powierzchnię pod idealny lakier w regionie <strong>Ostrzeszów, Kępno, Syców, Ostrów Wielkopolski</strong>.</p>
 
         <div class="piaskowanie-content">
             <div class="piaskowanie-gallery">
                 <div class="prostowanie-img-box" onclick="expandImage(this)">
-                    <img src="piaskowanie.jpg" alt="Piaskowanie felg i elementów gabarytowych - Walczykiewicz Serwis">
+                    <img src="piaskowanie.jpg" alt="Piaskowanie felg - Walczykiewicz Serwis">
                 </div>
                 <div class="prostowanie-img-box" onclick="expandImage(this)">
                     <img src="piaskowanie2.jpg" alt="Efekt oczyszczania felgi - piaskowanie Ostrzeszów">
@@ -748,24 +739,16 @@
     </div>
 </section>
 
-<!-- SEKCJA: LAKIERNIA -->
-<section class="realizacje-section" id="realizacje">
+<!-- SEKCJA: LAKIERNIA (WSTĘP + LINK DO GALERII REALIZACJI) -->
+<section class="lakiernia-intro-section" id="lakiernia">
     <div class="reveal">
-        <h2 style="text-transform: uppercase; font-size: 2.5rem; font-weight: 900;">Lakiernia <span style="color: var(--main-blue);">Felg</span></h2>
-        <p style="color: #ccc; margin-bottom: 40px;">Kompleksowa renowacja dostosowana to każdego rodzaju wykończenia. Profesjonalne odnawianie felg dla klientów z okolic Ostrowa Wielkopolskiego, Kępna i Sycowa.</p>
+        <h2 style="text-transform: uppercase; font-size: 2.5rem; font-weight: 900;">Lakiernia <span style="background: var(--accent-gradient); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">Felg</span></h2>
+        <p style="color: var(--text-muted); margin-bottom: 20px;">Kompleksowa renowacja dostosowana do każdego rodzaju wykończenia. Profesjonalne odnawianie felg dla klientów z okolic Ostrowa Wielkopolskiego, Kępna i Sycowa.</p>
 
         <div class="lakiernia-columns">
             <div class="lakiernia-col">
                 <h3>Malowanie Proszkowe</h3>
-                <p>Najwyższa trwałość mechaniczna i odporność na warunki atmosferyczne dzięki aplikacji elektrostatycznej i utwardzaniu w piecu.</p>
-                
-                <div class="ba-slider" id="beforeAfterSlider">
-                    <img src="po.jpg" alt="Po malowaniu" class="ba-img-back">
-                    <div class="ba-overlay" id="sliderOverlay">
-                        <img src="przed.jpg" alt="Przed malowaniem" class="ba-img-front" id="frontImg">
-                    </div>
-                    <div class="ba-handle" id="sliderHandle"></div>
-                </div>
+                <p>Najwyższa trwałość mechaniczna i odporność na warunki atmosferyczne dzięki aplikacji elektrostatycznej i utwardzaniu w piecu konwekcyjnym.</p>
             </div>
 
             <div class="lakiernia-col">
@@ -773,31 +756,16 @@
                 <p>Profesjonalne lakierowanie systemowe (płynne), dedykowane do uzyskania spektakularnych efektów wizualnych i fabrycznego wyglądu.</p>
                 
                 <ul class="wet-paint-list">
-                    <li><strong>Idealne odwzorowanie kolorów:</strong> Dostęp do pełnej palety fabrycznych odcieni wiodących producentów samochodów.</li>
-                    <li><strong>Perfekcyjna gładkość struktury:</strong> Brak efektu "skórki pomarańczy", idealny połysk lub głęboki mat.</li>
-                    <li><strong>Doskonałe podłoże pod CNC:</strong> Rekomendowana metoda przy renowacji felg z efektem szlifu diamentowego.</li>
-                    <li><strong>Precyzyjna aplikacja wielowarstwowa:</strong> Zastosowanie profesjonalnych podkładów, lakierów bazowych oraz bezbarwnych.</li>
+                    <li><strong>Idealne odwzorowanie kolorów:</strong> Paleta fabrycznych odcieni OEM.</li>
+                    <li><strong>Perfekcyjna gładkość struktury:</strong> Głęboki połysk lub elegancja matu.</li>
+                    <li><strong>Doskonałe podłoże pod CNC:</strong> Idealny montaż pod szlif diamentowy.</li>
                 </ul>
             </div>
         </div>
 
-        <!-- Galeria Malowanie Proszkowe -->
-        <p style="text-transform: uppercase; letter-spacing: 2px; font-weight: 900; color: #fff; margin-top: 60px; margin-bottom: 20px;">Galeria Realizacji — Malowanie Proszkowe:</p>
-        <div class="realizacje-grid">
-            <div class="realizacja-item" onclick="expandImage(this)"><img src="1.jpg" alt="Malowanie proszkowe - realizacja 1"></div>
-            <div class="realizacja-item" onclick="expandImage(this)"><img src="2.jpg" alt="Malowanie proszkowe - realizacja 2"></div>
-            <div class="realizacja-item" onclick="expandImage(this)"><img src="3_new.jpg" alt="Malowanie proszkowe - realizacja 3"></div>
-            <div class="realizacja-item" onclick="expandImage(this)"><img src="4.jpg" alt="Malowanie proszkowe - realizacja 4"></div>
-            <div class="realizacja-item" onclick="expandImage(this)"><img src="6.jpg" alt="Malowanie proszkowe - realizacja 6"></div>
-            <div class="realizacja-item" onclick="expandImage(this)"><img src="7.jpg" alt="Malowanie proszkowe - realizacja 7"></div>
-            <div class="realizacja-item" onclick="expandImage(this)"><img src="8.jpg" alt="Malowanie proszkowe - realizacja 8"></div>
-            <div class="realizacja-item" onclick="expandImage(this)"><img src="9.jpg" alt="Malowanie proszkowe - realizacja 9"></div>
-        </div>
-
-        <!-- Galeria Malowanie na Mokro -->
-        <p style="text-transform: uppercase; letter-spacing: 2px; font-weight: 900; color: #fff; margin-top: 60px; margin-bottom: 20px;">Galeria Realizacji — Malowanie na Mokro:</p>
-        <div class="realizacje-grid" style="max-width: 400px; margin-left: auto; margin-right: auto;">
-            <div class="realizacja-item" onclick="expandImage(this)"><img src="5.jpg" alt="Malowanie na mokro - realizacja 5"></div>
+        <div style="margin-top: 30px;">
+            <p style="font-size: 1.1rem; color: #fff; font-weight: 700;">Chcesz zobaczyć efekty naszej pracy i porównania Przed / Po?</p>
+            <a href="realizacje.html" class="btn-gallery">Zobacz pełną galerię realizacji →</a>
         </div>
     </div>
 </section>
@@ -806,15 +774,15 @@
     <div class="footer-container">
         <div class="footer-col">
             <div class="logo" style="color: white; margin-bottom: 15px;">WALCZYKIEWICZ <span>SERWIS</span></div>
-            <p style="font-size: 13px; color: #888;">Profesjonalna mechanika, wulkanizacja, piaskowanie, prostowanie i kompleksowa renowacja felg. Obsługujemy region: Ostrzeszów, Kępno, Syców, Mikstat, Ostrów Wielkopolski.</p>
+            <p style="font-size: 13px; color: var(--text-muted);">Profesjonalna mechanika, wulkanizacja, piaskowanie, prostowanie i kompleksowa renowacja felg. Obsługujemy region: Ostrzeszów, Kępno, Syców, Mikstat, Ostrów Wielkopolski.</p>
             <div id="serviceStatus" class="status-badge">Sprawdzanie...</div>
         </div>
         <div class="footer-col">
             <h4>Godziny <span>Otwarcia</span></h4>
             <ul class="footer-list">
                 <li><span>Pon - Pt:</span> <span>8:00 - 18:00</span></li>
-                <li><span>Sobota:</span> <span>NIECZYNNE (możliwość kontaktu)</span></li>
-                <li><span>Niedziela:</span> <span style="color: var(--main-blue);">Zamknięte</span></li>
+                <li><span>Sobota:</span> <span>NIECZYNNE (kontakt telefoniczny)</span></li>
+                <li><span>Niedziela:</span> <span style="color: var(--main-accent);">Zamknięte</span></li>
             </ul>
         </div>
         <div class="footer-col">
@@ -826,16 +794,16 @@
             </ul>
         </div>
     </div>
-    <div style="text-align: center; margin-top: 50px; font-size: 11px; color: #444;">© 2026 Walczykiewicz Serwis.</div>
+    <div style="text-align: center; margin-top: 50px; font-size: 11px; color: var(--text-muted);">© 2026 Walczykiewicz Serwis.</div>
 </footer>
 
 <a href="tel:603444085" class="floating-call">📞</a>
 
 <div id="lightbox" onclick="this.style.display='none'"><img id="expandedImg" src=""></div>
-<div id="contactModal" style="display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.8); z-index: 2000; justify-content: center; align-items: center;">
+<div id="contactModal" style="display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.85); z-index: 2000; justify-content: center; align-items: center;">
     <div class="modal-content">
         <span style="position:absolute; top:15px; right:20px; cursor:pointer; font-size:25px;" onclick="closeModal()">×</span>
-        <h2 style="color: var(--main-blue); font-weight: 900; text-transform: uppercase; margin-bottom: 25px;">ZADZWOŃ</h2>
+        <h2 style="color: var(--main-accent); font-weight: 900; text-transform: uppercase; margin-bottom: 25px;">ZADZWOŃ</h2>
         <a href="tel:603444085" class="phone-box">603 444 085</a>
         <a href="tel:883020511" class="phone-box">883 020 511</a>
     </div>
@@ -863,31 +831,6 @@
     window.addEventListener("scroll", reveal);
     reveal();
 
-    const slider = document.getElementById('beforeAfterSlider');
-    const overlay = document.getElementById('sliderOverlay');
-    const frontImg = document.getElementById('frontImg');
-    const handle = document.getElementById('sliderHandle');
-    let isDragging = false;
-
-    function moveSlider(x) {
-        if(!slider || !frontImg || !handle || !overlay) return;
-        const rect = slider.getBoundingClientRect();
-        let position = (x - rect.left) / rect.width;
-        if (position < 0) position = 0; if (position > 1) position = 1;
-        frontImg.style.width = slider.offsetWidth + 'px';
-        handle.style.left = position * 100 + '%';
-        overlay.style.width = position * 100 + '%';
-    }
-
-    if(slider) {
-        slider.addEventListener('mousedown', () => isDragging = true);
-        window.addEventListener('mouseup', () => isDragging = false);
-        window.addEventListener('mousemove', (e) => { if(isDragging) moveSlider(e.clientX); });
-        slider.addEventListener('touchstart', () => isDragging = true);
-        window.addEventListener('touchend', () => isDragging = false);
-        slider.addEventListener('touchmove', (e) => { if(isDragging) moveSlider(e.touches[0].clientX); });
-    }
-
     function updateStatus() {
         const now = new Date();
         const day = now.getDay();
@@ -899,9 +842,7 @@
         el.className = open ? "status-badge status-open" : "status-badge status-closed";
     }
 
-    window.addEventListener('resize', () => { if(frontImg && slider) frontImg.style.width = slider.offsetWidth + 'px'; });
     updateStatus();
-    if(frontImg && slider) frontImg.style.width = slider.offsetWidth + 'px';
 </script>
 
 </body>
