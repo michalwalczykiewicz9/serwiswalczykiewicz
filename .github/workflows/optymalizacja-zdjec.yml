@@ -8,7 +8,7 @@ on:
       - '**.jpg'
       - '**.jpeg'
       - '**.png'
-  workflow_dispatch: # pozwala uruchomić automat ręcznie jednym kliknięciem
+  workflow_dispatch:
 
 permissions:
   contents: write
@@ -20,16 +20,23 @@ jobs:
       - name: Pobierz pliki z repozytorium
         uses: actions/checkout@v4
 
-      - name: Zmniejsz zbyt duże zdjęcia (max 1600px) i usuń EXIF
+      - name: Skalowanie i kompresja zdjęć
         run: |
           sudo apt-get update
-          sudo apt-get install -y imagemagick
-          find . -maxdepth 2 -type f \( -iname "*.jpg" -o -iname "*.jpeg" -o -iname "*.png" \) -exec mogrify -resize "1600x1600>" -strip {} +
+          sudo apt-get install -y imagemagick jpegoptim optipng
+          find . -maxdepth 2 -type f \( -iname "*.jpg" -o -iname "*.jpeg" \) -exec mogrify -resize "1600x1600>" -strip {} +
+          find . -maxdepth 2 -type f \( -iname "*.jpg" -o -iname "*.jpeg" \) -exec jpegoptim --max=80 --strip-all {} +
+          find . -maxdepth 2 -type f -iname "*.png" -exec mogrify -resize "1600x1600>" -strip {} +
+          find . -maxdepth 2 -type f -iname "*.png" -exec optipng -o2 {} +
 
-      - name: Kompresja bez utraty jakości (Calibre)
-        uses: calibreapp/image-actions@main
-        with:
-          githubToken: ${{ secrets.GITHUB_TOKEN }}
-          jpegQuality: '80'
-          pngQuality: '80'
-          ignorePaths: 'node_modules/**'
+      - name: Zapisz zoptymalizowane zdjęcia w repozytorium
+        run: |
+          git config --local user.email "github-actions[bot]@users.noreply.github.com"
+          git config --local user.name "github-actions[bot]"
+          git add -A
+          if ! git diff --staged --quiet; then
+            git commit -m "Automatyczna optymalizacja zdjec [skip ci]"
+            git push
+          else
+            echo "Brak zmian do zapisania - zdjecia sa juz zoptymalizowane."
+          fi
