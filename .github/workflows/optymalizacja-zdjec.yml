@@ -1,0 +1,35 @@
+name: Optymalizacja zdjec
+
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - '**.jpg'
+      - '**.jpeg'
+      - '**.png'
+  workflow_dispatch: # pozwala uruchomić automat ręcznie jednym kliknięciem
+
+permissions:
+  contents: write
+
+jobs:
+  optimize-images:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Pobierz pliki z repozytorium
+        uses: actions/checkout@v4
+
+      - name: Zmniejsz zbyt duże zdjęcia (max 1600px) i usuń EXIF
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y imagemagick
+          find . -maxdepth 2 -type f \( -iname "*.jpg" -o -iname "*.jpeg" -o -iname "*.png" \) -exec mogrify -resize "1600x1600>" -strip {} +
+
+      - name: Kompresja bez utraty jakości (Calibre)
+        uses: calibreapp/image-actions@main
+        with:
+          githubToken: ${{ secrets.GITHUB_TOKEN }}
+          jpegQuality: '80'
+          pngQuality: '80'
+          ignorePaths: 'node_modules/**'
